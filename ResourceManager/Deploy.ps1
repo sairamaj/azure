@@ -1,4 +1,4 @@
-﻿Set-AzureRmContext -SubscriptionID '821d6eee-fe66-4c21-8e8b-ab80122b0d35'
+﻿Set-AzureRmContext -SubscriptionID '<subscription id here'
 #New-AzureRmResourceGroup -Name ExampleGroup -Location "West US"
 # New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleGroup -TemplateFile .\CreateStorageAccountSample.json
 # with properties specified.
