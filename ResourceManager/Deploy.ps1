@@ -5,3 +5,4 @@
 #New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleGroup -TemplateFile .\CreateStorageAccountSample.json -storageNamePrefix "testing"
 # removing
 Remove-AzureRmResourceGroup -Name ExampleGroup
+ 
