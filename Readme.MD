@@ -24,3 +24,14 @@
 
 [Table creation](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables)
 
+## VM Extensions
+Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks.
+
+[Azure-Automation: Run tasks on Azure Virtual Machines - without opening ports](https://azure.microsoft.com/en-us/blog/azure-automation-run-tasks-on-azure-virtual-machines-without-opening-ports/)
+
+### Installing Azure modules
+* Install-Module AzureRM
+    * In order this to work you should have Powershell gallery in the repository
+    * You can check by executing the Get-PSRepository
+    * If you don't find it then use Set-PSRepository -SourceLocation https://www.powershellgallery.com/api/v2/ -Name "psgallery" -InstallationPolicy Trusted
+

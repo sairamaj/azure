@@ -1,0 +1,1 @@
+[Seeing detailed error message for ASP.NET Core 1.0 app deployed on Azure App Services](http://blog.medhat.ca/2016/12/seeing-detailed-error-message-for.html)
