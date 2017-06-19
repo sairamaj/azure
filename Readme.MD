@@ -44,3 +44,7 @@ Azure virtual machine extensions are small applications that provide post-deploy
     * You can check by executing the Get-PSRepository
     * If you don't find it then use Set-PSRepository -SourceLocation https://www.powershellgallery.com/api/v2/ -Name "psgallery" -InstallationPolicy Trusted
 
+[Azure Active Directory for Developers](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+
+[Azure Tenant means](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)
+[Authorization in a web app using Azure AD application roles & role claims](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapp-roleclaims/)
