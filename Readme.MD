@@ -48,3 +48,11 @@ Azure virtual machine extensions are small applications that provide post-deploy
 
 [Azure Tenant means](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)
 [Authorization in a web app using Azure AD application roles & role claims](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+
+# Exposing the RDP 3389 to port say 22
+* Crate Load balancer
+    * Add Inbound NAT rule and use map 22 -> 3389
+    * Select virtual machine(s)
+    * Now you can login to virtual machine with port 22
+
+

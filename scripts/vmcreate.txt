@@ -10,7 +10,7 @@ az group create --name KuberneteTutorial --location westus
 # Create a virtual machine. 
 az vm create \
     --resource-group KuberneteTutorial \
-    --name myVM \
+    --name dockerUseVm \
     --image win2016datacenter \
     --admin-username azureuser \
     --admin-password $AdminPassword 
