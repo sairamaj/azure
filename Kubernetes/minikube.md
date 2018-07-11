@@ -20,3 +20,8 @@ kubectl run <name> --image=<imagename>
 * minikube.exe service hello-nginx (launches)
 
 *   kubectl get deployment
+
+[Running your own Docker containers in Minikube for Windows](https://medium.com/@maumribeiro/running-your-own-docker-images-in-minikube-for-windows-ea7383d931f6)
+
+* minikube docker-env  ( this will set up so that images can be created in minikube VM)
+
