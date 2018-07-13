@@ -25,3 +25,8 @@ kubectl run <name> --image=<imagename>
 
 * minikube docker-env  ( this will set up so that images can be created in minikube VM)
 
+[Setting up Kubernetes on Windows10 Laptop with Minikube]
+(https://blogs.msdn.microsoft.com/wasimbloch/2017/01/23/setting-up-kubernetes-on-windows10-laptop-with-minikube/)
+
+[Install and run Minikube in Azure Linux VM]
+(https://medium.com/@binduc/install-and-run-minikube-in-azure-linux-vm-47a12ade2d43)
