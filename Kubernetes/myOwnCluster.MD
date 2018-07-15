@@ -34,7 +34,17 @@
         * az aks create --name KuberneteTutorialCluster --resource-group KuberneteTutorial --node-count 1 --generate-ssh-keys --service-principal 0fdc2483-7d13-4567-aca4-0b8be6fd2f52 --client-secret 159cf536-3fee-4dee-b029-6b739b4892db 
         (SSH keys will be generated c:\users\azueruser\.ssh)
 
-
+* Configure kubectl
+    * az aks get-credentials --name KuberneteTutorialCluster --resource-group KuberneteTutorial
+    * kubectl get nodes
+* Deploy
+    * kubectl apply -f deploy.yaml
+    * kubectl get service oauth --watch (to see whether it is ready or not.)
+* Delete
+    * kubectl delete -f deploy.yaml
+* Troubleshooting
+    * kubectl describe pods
+    * kubectl describe all
 
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-cluster
 
