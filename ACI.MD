@@ -1,5 +1,5 @@
 * create image and push
-    *   az acr build --registry saireg --image helloacrbuild:v16 --resource-group saireg .
+    *   az acr build --registry saireg --image helloacrbuild:v52 --resource-group saireg --timeout 3600 .
 
 * deploy
 ACR_NAME=saireg
@@ -11,7 +11,7 @@ acr-build-saireg.eastus.azurecontainer.io
 az container create \
     --resource-group $RES_GROUP \
     --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v15 \
+    --image $ACR_NAME.azurecr.io/helloacrbuild:v25 \
     --registry-login-server $ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
@@ -26,7 +26,8 @@ az container create \
     * az container delete --resource-group $RES_GROUP --name acr-build
 
 * See what is the container Ip
-    * az container show --resource-group saireg --name acr-build ( take the public ip and use it.)
+    * az container show --resource-group saireg --name acr-build
+    * az container show --resource-group saireg --name acr-build --query "ipAddress.ip"  ( take the public ip and use it.)
 
 * See logs
     * az container logs --resource-group $RES_GROUP --name acr-build
@@ -38,4 +39,10 @@ az container create \
 * Delete the image
     * az acr repository delete -n saireg --image helloacrbuild:v1
 * Execute command
-    * az container 
+    * az container exec  --name acr-build --resource-group saireg --exec-command "/bin/sh"
+    
+    * netstat   ( to see the ports)
+    * printenv  ( to print environment )
+    * <name>=<value> ( set environment )
+    * ps  ( list processes )
+     
