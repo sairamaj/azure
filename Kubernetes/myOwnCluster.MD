@@ -42,7 +42,17 @@
                 --windows --admin-username azureuser \
                 --admin-password myPassword12
 
-
+* Configure kubectl
+    * az aks get-credentials --name KuberneteTutorialCluster --resource-group KuberneteTutorial
+    * kubectl get nodes
+* Deploy
+    * kubectl apply -f deploy.yaml
+    * kubectl get service oauth --watch (to see whether it is ready or not.)
+* Delete
+    * kubectl delete -f deploy.yaml
+* Troubleshooting
+    * kubectl describe pods
+    * kubectl describe all
 
 * Troubleshooting
     * kubectl get pods
