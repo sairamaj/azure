@@ -2,7 +2,7 @@
 [Create container images to be used with Azure Container Service-WithBuild](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-build)
 
 * create image and push
-    *   az acr build --registry saireg --image helloacrbuild:v52 --resource-group saireg --timeout 3600 .
+    *   az acr build --registry saireg --image helloacrbuild:v70 --resource-group saireg --timeout 3600 .
 
 * deploy
 ACR_NAME=saireg
@@ -14,7 +14,7 @@ acr-build-saireg.eastus.azurecontainer.io
 az container create \
     --resource-group $RES_GROUP \
     --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v25 \
+    --image $ACR_NAME.azurecr.io/helloacrbuild:v70 \
     --registry-login-server $ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
@@ -38,6 +38,7 @@ az container create \
 * See the repository
     * az acr repository list --resource-group saireg --name saireg
 * See the images
+    * az acr repository  show --name saireg --repository helloacrbuild
     * az acr repository  show-tags --repository helloacrbuild --name saireg
 * Delete the image
     * az acr repository delete -n saireg --image helloacrbuild:v1

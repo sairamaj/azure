@@ -19,3 +19,5 @@ az aks list
 ; finally delete the group
 az 
 
+## Resources
+[Webnairs](https://github.com/ernesen/kubernetes)
