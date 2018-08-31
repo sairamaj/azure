@@ -1,3 +1,6 @@
+[Create container images to be used with Azure Container Service](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app)  
+[Create container images to be used with Azure Container Service-WithBuild](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-build)
+
 * create image and push
     *   az acr build --registry saireg --image helloacrbuild:v101 --resource-group saireg --timeout 3600 .
 
@@ -47,3 +50,24 @@ az container create \
     * <name>=<value> ( set environment )
     * ps  ( list processes )
      
+
+### K8
+
+az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv
+az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv
+az aks create \
+    --name simulatorcluster \
+    --resource-group k8cluster \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --service-principal $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
+    --client-secret $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv)
+
+
+* az aks get-credentials --name simulatorcluster --resource-group k8cluster    (to merge)
+* kubectl get nodes
+
+* az acr list --resource-group saireg --query "[].{acrLoginServer:loginServer}" --output table (get acr login server)
+    * saireg.azurecr.io
+* kubectl apply -f service-simulator.yaml
+* kubectl get service coaspsimulator --watch
