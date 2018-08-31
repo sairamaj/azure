@@ -1,3 +1,4 @@
+
 # using Azure Cloud Shell [Deploy an Azure Kubernetes Service (AKS) cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
 ; creates a resource group
 az group create --name myResourceGroup --location westus
@@ -20,4 +21,5 @@ az aks list
 az 
 
 ## Resources
+[kubernetes.io](https://kubernetes.io/)
 [Webnairs](https://github.com/ernesen/kubernetes)

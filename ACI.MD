@@ -1,5 +1,5 @@
 * create image and push
-    *   az acr build --registry saireg --image helloacrbuild:v70 --resource-group saireg --timeout 3600 .
+    *   az acr build --registry saireg --image helloacrbuild:v101 --resource-group saireg --timeout 3600 .
 
 * deploy
 ACR_NAME=saireg
@@ -11,7 +11,7 @@ acr-build-saireg.eastus.azurecontainer.io
 az container create \
     --resource-group $RES_GROUP \
     --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v70 \
+    --image $ACR_NAME.azurecr.io/helloacrbuild:v101 \
     --registry-login-server $ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
