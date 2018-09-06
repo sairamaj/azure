@@ -12,7 +12,7 @@ az container create \
     --resource-group $RES_GROUP \
     --name acr-build \
     --image $ACR_NAME.azurecr.io/helloacrbuild:v70 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --registry-login-server +++$ACR_NAME.azurecr.io \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label acr-build-$ACR_NAME \
@@ -35,7 +35,7 @@ az container create \
 * See the repository
     * az acr repository list --resource-group saireg --name saireg
 * See the images
-    * az acr repository  show --name saireg --repository helloacrbuild
+    * az acr repository  show --name saireg --repository helloacrbuild  
     * az acr repository  show-tags --repository helloacrbuild --name saireg
 * Delete the image
     * az acr repository delete -n saireg --image helloacrbuild:v1
@@ -47,3 +47,5 @@ az container create \
     * <name>=<value> ( set environment )
     * ps  ( list processes )
      
+[Tutorial: Build container images in the cloud with Azure Container Registry Build](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-build)
+    

@@ -55,4 +55,4 @@ Azure virtual machine extensions are small applications that provide post-deploy
     * Select virtual machine(s)
     * Now you can login to virtual machine with port 22
 
-
+[CLI vs Powershell](https://blogs.msdn.microsoft.com/premier_developer/2017/11/02/choosing-the-right-tooling-for-azure-and-side-by-side-azure-cli-and-powershell-commands/)
