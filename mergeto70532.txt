@@ -1,2 +1,11 @@
 Virtual machine diagram:
 	http://bit.ly/2thbmq8
+Virtual disks connected to virtual machines are of page blob types always.(Page blobs optimized for reandom read and writes)
+
+virtual machine pricing can come in exam.
+
+read this before exam.
+
+https://support.microsoft.com/en-us/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines
+
+pricing calculator: https://azure.microsoft.com/en-us/pricing/calculator/
