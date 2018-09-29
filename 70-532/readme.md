@@ -99,3 +99,8 @@ DaaS (Diagnostics as Service)
 
 #### Webhooks
 File types supporeted, (com,.bat, .exe, .sh , ps1, .js, .php)
+
+#### Patterns
+* Retry pattern
+
+Use Azure quick start templates
