@@ -51,7 +51,7 @@ Azure virtual machine extensions are small applications that provide post-deploy
 
 # Exposing the RDP 3389 to port say 22
 * Crate Load balancer
-    * Add Inbound NAT rule and use map 22 -> 3389
+    * Add Inbound NAT rule and use map 22 -> 3389 (use Custom)
     * Select virtual machine(s)
     * Now you can login to virtual machine with port 22
 
