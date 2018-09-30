@@ -104,3 +104,70 @@ File types supporeted, (com,.bat, .exe, .sh , ps1, .js, .php)
 * Retry pattern
 
 Use Azure quick start templates
+
+## Virtual machines
+### Alerts
+* Metrics based (ex: cpu)
+* Activity based (ex:reboot)
+
+## dev test labs
+* [artifacts](https://github.com/Azure/azure-devtestlab)
+* policies
+* create images
+* formulas (reusable bases)
+* cost tracking
+* target costs/alerts (per resources, monthly basis)
+* IAM 
+* claim and unclaim
+[howto](https://www.starwindsoftware.com/blog/how-to-use-azure-devtest-labs)
+[demo](https://github.com/gxy001/azure-devtestlabsdemo)
+
+## High available
+[load balancer vs gateway when to use](https://blog.siliconvalve.com/2017/04/04/when-to-use-azure-load-balancer-or-application-gateway/)
+* [Availability sets] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)
+    * Fault domain (share the same powersupply and network switc) (un planned)
+    * Update domain
+
+Note: First create availability sets and then create virtual machine in it (not the otherway)
+
+Load balancer: backend pool -> availability set.  
+Health probes on Load balancer.
+
+Load balancer rule-> floating ip(exam)  
+Gateway is more for web (web app firewall, cookie bases session affinity, ssl offload, url based routing,multi site routing)  
+[architecture ref](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+
+[learning more must visit](https://docs.microsoft.com/en-us/learn/azure/)
+## Storage
+* blob  (binary lart object - unstructed data)
+    * page blobs (vhds, optimized for read and write)
+    * block blobs ( images, movies , stored in blocks)
+    * append blobs ( text files, log files)  
+
+* blob metadata
+
+* storage account - globally unique.
+    * storage account => containers => blobs
+* Storage explorer  
+* There is no hiearchy built but one can simulate using the pats in the blobs. (for ex: name can be sub/images/image1.png)
+
+* CDN
+    * Edge servers, Point of Presense(POP)
+
+## developing in C#
+* Microsoft.WindowsAzure.ConfigurationManager (nuget)
+## Tables
+* Non relational
+* Storage account => tables => entities (collection of properties)
+* Partition key, row key.
+* OData (Rest based protocol)
+
+## Queues
+* Asynchronous messaging system.
+* Storage account => Queues => Messages
+
+## Storage access
+* Shared access signature.
+* Policy  
+
+[DTU calculator](dtucalculator.azrewebsites.net)
