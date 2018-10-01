@@ -12,3 +12,11 @@
 # Azure Container Registry
 * az acr repository list --name KuberneteTutorialRegistry  ( list the images)
 * 
+## Misc commands
+* defaults
+    * az configure --defaults group=simulator
+* switching accounts
+    * az account set --subscription subid
+    
+
+
