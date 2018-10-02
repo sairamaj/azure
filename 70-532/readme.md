@@ -171,3 +171,21 @@ Gateway is more for web (web app firewall, cookie bases session affinity, ssl of
 * Policy  
 
 [DTU calculator](dtucalculator.azrewebsites.net)
+
+## Azure AD
+[AD libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries)
+* Protocols
+    * WS Federation (Enterprise)
+    * SAML-p 2.0  (Enterprise) 
+    * OAuth 2.0 (Authorization)
+    * OpenID Connect (Authentication)
+    * [WS Federation Sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)
+
+Microsoft Graph api vs Azure Graph Api
+
+Key Valut  
+*   Managed Service Identity (Virtual machine) -> In Configuratio (as extension)
+    * allows virtual machine to access to secrets in the key valut.
+
+
+     
