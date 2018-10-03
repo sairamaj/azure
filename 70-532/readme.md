@@ -185,7 +185,16 @@ Microsoft Graph api vs Azure Graph Api
 
 Key Valut  
 *   Managed Service Identity (Virtual machine) -> In Configuratio (as extension)
-    * allows virtual machine to access to secrets in the key valut.
+    * allows virtual machine to access to secrets in the key valut.  
 
+Azure Key Vault service limits.
 
-     
+## Service Bus
+* Queue
+    * One directional
+* Topics
+    * Subscriptions
+* Relays
+    * Bi directional
+    
+    
