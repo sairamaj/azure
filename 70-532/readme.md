@@ -171,3 +171,7 @@ Gateway is more for web (web app firewall, cookie bases session affinity, ssl of
 * Policy  
 
 [DTU calculator](dtucalculator.azrewebsites.net)
+
+### Azure AD
+*  Azure AD is cloud identity service
+* Web based identity system.
