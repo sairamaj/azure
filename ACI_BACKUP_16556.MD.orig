@@ -55,8 +55,10 @@ az container create \
     * <name>=<value> ( set environment )
     * ps  ( list processes )
      
+<<<<<<< HEAD
 [Tutorial: Build container images in the cloud with Azure Container Registry Build](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-build)
     
+=======
 
 ### K8
 
@@ -78,3 +80,4 @@ az aks create \
     * saireg.azurecr.io
 * kubectl apply -f service-simulator.yaml
 * kubectl get service coaspsimulator --watch
+>>>>>>> 6f4eef67f7ddf3faec4802daeb42a03e3dd65ded

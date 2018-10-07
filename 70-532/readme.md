@@ -172,6 +172,47 @@ Gateway is more for web (web app firewall, cookie bases session affinity, ssl of
 
 [DTU calculator](dtucalculator.azrewebsites.net)
 
-### Azure AD
-*  Azure AD is cloud identity service
-* Web based identity system.
+## Azure AD
+[AD libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries)
+* Protocols
+    * WS Federation (Enterprise)
+    * SAML-p 2.0  (Enterprise) 
+    * OAuth 2.0 (Authorization)
+    * OpenID Connect (Authentication)
+    * [WS Federation Sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)
+
+Microsoft Graph api vs Azure Graph Api
+
+Key Valut  
+*   Managed Service Identity (Virtual machine) -> In Configuratio (as extension)
+    * allows virtual machine to access to secrets in the key valut.  
+
+Azure Key Vault service limits.
+
+## Service Bus
+* Queue
+    * One directional
+* Topics
+    * Subscriptions
+* Relays
+    * Bi directional
+    
+[servicebus-examples](https://github.com/mikepfeiffer/servicebus-examples)
+
+why 2 keys?
+
+[event hub] (https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)
+[notfication hub](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview)
+
+## RBAC
+* Security Principal (Who) (User, Group, Application)
+* Role definition (What) (Collections of permissions) (read, write, delete)
+* Scope (Where) (Management -> Subscription -> Resource Group -> Resource)
+
+#### Builtin Roles
+* Owner (full and can delegate)
+* Contributer ( full but cannot delegate)
+* Reader
+* User Access Administrator (can give access)
+
+[rbac overview](https://docs.microsoft.com/en-us/learn/modules/secure-azure-resources-with-rbac/2-rbac-overview)
