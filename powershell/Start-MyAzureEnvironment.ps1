@@ -2,7 +2,7 @@
 Import-Module .\AzureCommon.psm1
 Login
 
-Select-AzureRmSubscription -Subscription <subidhere>
+Select-AzureRmSubscription -SubscriptionName 'Visual Studio Enterprise'
 $OldResourceGroupName = 'Default-ActivityLogAlerts'
 $ResourceGroupName = 'dev'
 $VMName = 'dev'

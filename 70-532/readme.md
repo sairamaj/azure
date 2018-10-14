@@ -216,3 +216,17 @@ why 2 keys?
 * User Access Administrator (can give access)
 
 [rbac overview](https://docs.microsoft.com/en-us/learn/modules/secure-azure-resources-with-rbac/2-rbac-overview)
+
+### Deployging web apps
+* Using publish profile from visual studio does not need to login to azure account. This will be good for the developers to use this option to use during development without logging in to azure account.
+
+### General
+* We can buy domains in azure (one way is to go to app service -> Custom domain)
+* App service plan you can think of as Managed VM
+
+### Azure API management
+* API Gateway
+* Publisher Portal (some are in azure portal)
+* Developer portal (developers can use this.)
+### Study
+* Managed service identity 
