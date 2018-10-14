@@ -2,11 +2,10 @@
 Import-Module .\AzureCommon.psm1
 Login
 
-Select-AzureRmSubscription -Subscription <subidhere>
+Select-AzureRmSubscription -SubscriptionName 'Visual Studio Enterprise'
 $OldResourceGroupName = 'Default-ActivityLogAlerts'
 $ResourceGroupName = 'dev'
 $VMName = 'dev'
-$LoadbalancerName = 'dev-lb'
 
 if( $false -eq (Test-VMRunning -Name $VMName -ResourceGroupName $OldResourceGroupName) ){
     Write-Host "Starting Virtual machine:$VMName"

@@ -196,5 +196,14 @@ Azure Key Vault service limits.
     * Subscriptions
 * Relays
     * Bi directional
-    
-    
+
+## App Service    
+### Choosing a service plan  
+Function apps may use one of two types of service plans. The first service plan is the __Consumption service plan__. This is the plan that you choose when using the Azure serverless application platform. The Consumption service plan provides automatic scaling and bills you when your functions are running. The Consumption plan comes with a configurable timeout period for the execution of a function. By default, it is 5 minutes, but may be configured to have a timeout as long as 10 minutes.  
+
+The second plan is called the __Azure App Service plan__. This plan allows you to avoid timeout periods by having your function run continuously on a VM that you define. When using an App Service plan, you are responsible for managing the app resources the function runs on, so this is __technically not a serverless plan__. However, it may be a better choice if your functions are used continuously or if your functions require more processing power or execution time than the Consumption plan can provide.
+
+### Storage account requirements
+When you create a function app, it must be linked to a storage account. You can select an existing account or create a new one. The function app uses this storage account for internal operations such as logging function executions and managing execution triggers. On the Consumption service plan, this is also where the function code and configuration file are stored.
+
+[Function bindings](https://docs.microsoft.com/en-us/learn/modules/create-serverless-logic-with-azure-functions/4-creating-and-executing-an-azure-function)
