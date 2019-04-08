@@ -162,6 +162,7 @@ Gateway is more for web (web app firewall, cookie bases session affinity, ssl of
 * Partition key, row key.
 * OData (Rest based protocol)
 
+
 ## Queues
 * Asynchronous messaging system.
 * Storage account => Queues => Messages
@@ -196,5 +197,63 @@ Azure Key Vault service limits.
     * Subscriptions
 * Relays
     * Bi directional
+
     
+[servicebus-examples](https://github.com/mikepfeiffer/servicebus-examples)
+
+why 2 keys?
+
+[event hub] (https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)
+[notfication hub](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview)
+
+## RBAC
+* Security Principal (Who) (User, Group, Application)
+* Role definition (What) (Collections of permissions) (read, write, delete)
+* Scope (Where) (Management -> Subscription -> Resource Group -> Resource)
+
+#### Builtin Roles
+* Owner (full and can delegate)
+* Contributer ( full but cannot delegate)
+* Reader
+* User Access Administrator (can give access)
+
+[rbac overview](https://docs.microsoft.com/en-us/learn/modules/secure-azure-resources-with-rbac/2-rbac-overview)
+
+### Deployging web apps
+* Using publish profile from visual studio does not need to login to azure account. This will be good for the developers to use this option to use during development without logging in to azure account.
+
+### General
+* We can buy domains in azure (one way is to go to app service -> Custom domain)
+* App service plan you can think of as Managed VM
+
+### Azure API management
+* API Gateway
+* Publisher Portal (some are in azure portal)
+* Developer portal (developers can use this.)
+### Study
+* Managed service identity 
+
+
+## App Service    
+### Choosing a service plan  
+Function apps may use one of two types of service plans. The first service plan is the __Consumption service plan__. This is the plan that you choose when using the Azure serverless application platform. The Consumption service plan provides automatic scaling and bills you when your functions are running. The Consumption plan comes with a configurable timeout period for the execution of a function. By default, it is 5 minutes, but may be configured to have a timeout as long as 10 minutes.  
+
+The second plan is called the __Azure App Service plan__. This plan allows you to avoid timeout periods by having your function run continuously on a VM that you define. When using an App Service plan, you are responsible for managing the app resources the function runs on, so this is __technically not a serverless plan__. However, it may be a better choice if your functions are used continuously or if your functions require more processing power or execution time than the Consumption plan can provide.
+
+### Storage account requirements
+When you create a function app, it must be linked to a storage account. You can select an existing account or create a new one. The function app uses this storage account for internal operations such as logging function executions and managing execution triggers. On the Consumption service plan, this is also where the function code and configuration file are stored.
+
+[Function bindings](https://docs.microsoft.com/en-us/learn/modules/create-serverless-logic-with-azure-functions/4-creating-and-executing-an-azure-function)
+
+### Logic apps
+* Connect SaaS apps
+* Long running
+    * http://bit.ly/2n7FpMO
+* B2B scenaario
+    * http://bit.ly/2rErGRY
+* Connecting to On-premises Data
+    * http://bit.ly/2mgBUoD
     
+
+
+
