@@ -1,0 +1,15 @@
+who are customers?
+     - internal, external, end users, partners
+where are they located?
+    - us , across the globe
+is this app used 24/7?
+what is the traffic pattern?
+you have source code?
+can we identify some scenarios?(user flows?)
+
+Tips
+Design for failures
+  - failure mode analysis
+  - identify key processes
+  - identify key components for key proceses
+        ex: web site

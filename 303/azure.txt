@@ -1,0 +1,141 @@
+Virtual machine needs to be located in the same region as virtual network
+cosmodb queries
+    https://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-query-container
+logic app limits and configuration 
+    https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal
+Virtual machines and key valut needs to be in the same region
+
+auto scale
+	https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
+azure hybrid
+	https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity
+azure firewall
+	https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-firewall-manager/2-what-is-azure-firewall-manager
+custom domain
+https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain
+
+AD connect
+ https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-prerequisites
+built-in roles
+	https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+
+NotActions and deny assignments are not the same and serve different purposes. NotActions are a convenient way to subtract specific actions from a wildcard (*) operation.
+
+http://aka.ms/auth-options
+https://www.youtube.com/watch?v=SS-5qDgPvJU&ab_channel=MicrosoftAzure
+
+Load balancing
+ - load balance between your servers in a region at the application layer - Application Gateway
+ - Optimize global routing of your web trafic and optimize top-tier end-user performance and reliability through quick global failover - Front Door
+ - network layer load balance - load balancer
+ - DNS - Traffic manager
+
+Azure Security Center is offered in two tiers: free and standard. Features like security recommendations are available for free. The Standard tier provides additional protection like advanced threat detection and protection across hybrid cloud workloads.
+tags are not inherited (50 limit)
+
+Virtual network visualization
+https://azure.microsoft.com/en-us/blog/analysis-of-network-connection-data-with-azure-monitor-for-virtual-machines/
+Storage
+https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs
+  - LRS and ZRS use synchronous replication
+  - LRS 99.999999999% (9 11s)
+  - ZRS 99.9999999999% (12 9's)  
+  - ZRS	
+	General-purpose v2
+	Premium block blobs
+	Premium file shares
+  - GRS
+	99.99999999999999% (16 9's)
+	general-purpose v2 only
+  - Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS
+
+  Azure AD connect	
+	Enterprise  Admins on AD
+	Global administrator on Azure AD
+[Compute summary](./images/computesummary.png)
+[reference](https://www.youtube.com/watch?v=inaXkN2UrFE&ab_channel=AdamMarczak-AzureforEveryone)
+
+VM SLAs
+-------
+  - Single VM: 99.90
+  - Availabliity set: 99.95%
+  - Availability zone: 99.99%
+
+Fault domain
+ - is a group of resources that may fail at the same time due to same root cause (typically a rack)
+Update domain
+ - An update domain is group of resources that can be updated and rebooted if required at the same time.
+One cannot add existing virtual machine to an availability set after its created.
+
+Custom SSL is not supported in the F1 or D1 tier for app service.
+App Service injects an X-ARR-ClientCert request header with the client certificate
+
+https://www.examtopics.com/exams/microsoft/az-303
+
+SQL Pools
+	You cannot add databases from different servers into the same pool
+
+Cost management
+  actual vs amortized (amortized includes reservations)
+
+SLAs
+  - Single service -> same as service
+    ex: 99.95 -> 99.95%
+  - multiple services (s1 * s2)
+    ex: 99.95 (web) * 99.95 (sql)
+      = 99.90
+  - multiple services with multiple instances
+    ex: 2 webs + 1 lb
+        100 - (Uw1 * Uw2) * (1lb sla)
+        100 - (0.05 * 0.05) * ( 99.95)
+Cloud adoption framework
+  is set of tools, best practices, guidelines and documentation.
+  Strategy -> Plan -> Ready -> adoption -> Governance -> manage
+    (Plan->Ready-Adoption main parts of cloud adoption framework)
+
+Log analytics access  
+  - workspace reader (across all logs)
+  - resource reader access (if access to resource then access to resource logs)
+
+Monitoring  
+  View metrics across multiple resources
+  Some resource types can query for metrics over multiple resources. The resources must be within the same subscription and location
+
+Sql elastic pooling
+  The databases in an elastic pool are on a single server and share a set number of resources at a set price  
+Network options
+  - Vpn to Vpn (public ip through vpn gateway)
+  - Point to Site
+  - Site to Site
+  - Express route
+[Vpn gateway vs peering](https://azure.microsoft.com/en-us/blog/vnet-peering-and-vpn-gateways/)
+Vnet inbound and outbound
+ - built-in rules cannot be changed.
+
+ Traffic Analytics will give you an overview of the traffic in your Virtual Networks, as well as the percentage coming from malicious IP addresses, leveraging Microsoft Threat Intelligence databases. This tool will show you as well the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems.
+ Network Performance Monitor can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits
+VPN diagnostics can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises. 
+Connection Monitor allows you to measure the network availability between sets of endpoints
+
+Alerts action groups
+  Send an email, SMS message, or push notification
+  Execute an Azure Function
+  Execute an Azure Automation runbook
+  Execute an Azure Logic App
+  Send a request to a webhook endpoint
+
+Cosmo db
+--------
+With Availability Zone (AZ) support, Azure Cosmos DB will ensure replicas are placed across multiple zones within a given region to provide high availability and resiliency to zonal failures. Availability Zones provide a 99.995% availability SLA with no changes to latency. In the event of a single zone failure, zone redundancy provides full data durability with RPO=0 and availability with RTO=0. Zone redundancy is a supplemental capability to regional replication. Zone redundancy alone cannot be relied upon to achieve regional resiliency.
+You can't update an existing container to use a different unique key. In other words, after a container is created with a unique key policy, the policy can't be changed.
+
+To set a unique key for an existing container, create a new container with the unique key constraint. Use the appropriate data migration tool to move the data from the existing container to the new container. For SQL containers, use the Data Migration tool to move data. For MongoDB containers, use mongoimport.exe or mongorestore.exe to move data.
+
+Resiliency is the ability of a system to recover from failures and continue to function.
+
+Select Standard SKU Standard Load Balancer provides a dimension of reliability that Basic does not
+Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.
+
+Event Hubs does not have any built-in dead-letter queue functionality. You can use Azure Queue Storage or Service Bus to implement a dead-letter queue, or use Azure Functions or some other eventing mechanism
+
+Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace in another Azure Active Directory tenant.

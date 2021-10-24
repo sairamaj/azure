@@ -1,0 +1,14 @@
+Thread model
+    1- Gather information about the basic security controls
+    2- Evaluate the application design progressively
+    3- Mitigate the identified threats
+        Use the Defense-in-Depth approach. This can help identify controls needed in the design to mitigate risk if a primary security control fails
+        
+Threat modeling is a crucial engineering exercise that includes defining security requirements, identifying and mitigating threats, and validating those mitigations. This technique can be used at any stage of application development or production, but it's most effective during the design stages of a new functionality
+STRIDE
+  - Spoffing
+  - Tampering
+  - Repudiation
+  - Information disclousure
+  - Denial of service attach
+  - Elevated Privilege
