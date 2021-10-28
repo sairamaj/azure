@@ -139,3 +139,5 @@ Standard Load Balancer supports global load balancing ensuring your application 
 Event Hubs does not have any built-in dead-letter queue functionality. You can use Azure Queue Storage or Service Bus to implement a dead-letter queue, or use Azure Functions or some other eventing mechanism
 
 Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace in another Azure Active Directory tenant.
+
+Sql Failover cannot be back within 30mins.
