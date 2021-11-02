@@ -141,3 +141,29 @@ Event Hubs does not have any built-in dead-letter queue functionality. You can u
 Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace in another Azure Active Directory tenant.
 
 Sql Failover cannot be back within 30mins.
+
+[Storage Account Types ](https://www.ais.com/how-to-choose-the-right-kind-of-azure-storage-account/)
+
+Azure VMWare Migration limits
+Agent less
+Disk limits	OS disk: 2 TB
+Data disk: 32 TB
+Maximum disks: 60	
+
+Agent
+OS disk: 2 TB
+Data disk: 32 TB
+Maximum disks: 63
+ports: 443, 9443
+
+
+Hyper-V
+OS: 2 TB
+Disk: 4TB
+disk count:16
+
+[https://docs.microsoft.com/en-us/learn/modules/build-flexible-bicep-templates-conditions-loops/2-use-conditions-deploy-resources(Azure Resource Manager evaluates the property expressions before the conditionals on the resources)
+
+Things to study
+https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-support-matrix#azure-vm-requirements
+
