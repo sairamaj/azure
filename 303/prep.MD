@@ -52,3 +52,86 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 
 * The outbound rules tab is only valid for a public standard load balancer. Outbound rules are not supported on an internal or basic load balancer. Azure Virtual Network NAT is the recommended way to provide outbound internet access for the backend pool.
 
+# Service Bus
+Compatible with
+* ActiveMQ
+* RabbitMQ
+* Java/Jakarta
+* JMS 1.1
+
+* Topic Subscriptions are durable by default, but can be configured to expire and then be automatically deleted.
+
+* Topics/subscriptions aren't supported in the Basic pricing tier
+* Expiration
+  * At that time, the expires-at-utc property takes on the value enqueued-time-utc + time-to-live. The time-to-live (TTL) setting on a brokered message isn't enforced when there are no clients actively listening
+* Message time to live
+  * Message time to live determines how long a message will stay in the queue before it expires and is removed or dead lettered. When sending messages it is possible to specify a different time to live for only that message. This default will be used for all messages in the queue which do not specify a time to live for themselve
+* Lock duration
+  * Sets the amount of time that a message is locked for other receivers. After its lock expires, a message pulled by one receiver becomes available to be pulled by other receivers. Defaults to 30 seconds, with a maximum of 5 minutes.
+* Delete the queue immediately after it remains idle for a configurable amount of time
+* Enable duplicate detection
+  * Enabling duplicate detection configures your queue to keep a history of all messages sent to the queue for a configurable amount of time. During that interval, your queue will not accept any duplicate messages. Enabling this property guarantees exactly-once delivery over a user-defined span of time
+* Dead letter queue
+  * Dead lettering messages involves holding messages that cannot be successfully delivered to any receiver to a separate queue after they have expired. Messages do not expire in the dead letter queue, and it supports peek-lock delivery and all transactional operations. 
+* Enable session
+  * Service bus sessions allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
+* Forward message
+  * Automatically forward messages to a queue or topic in the same namespace
+
+* To realize a FIFO guarantee in Service Bus, use sessions
+* When sessions are enabled on a queue or a subscription, the client applications can no longer send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by accepting the session.
+
+* Maximum delivery count
+  * The default value is 10. Whenever a message has been delivered under a peek-lock, but has been either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ.
+
+# Computer Vision API
+* Analyze Image
+* OCR - Optical Character Recognition
+* Image Recognition
+  * Celebrities
+  * Landmarks
+* Hand written text
+[you tube](https://www.youtube.com/watch?v=zMfN3SJoBFI&ab_channel=PragmaticWorks)
+
+# App service
+* Shared (dev/test)
+  * Free and Shared
+  * F1
+    * No custom domain
+    * 60 min/day compute
+  * D1
+    * custom domain
+  * B1
+    * Custom domain
+    * manual scale
+* Dedicated Computer
+  * P1V2,P1V3,PxVy
+  * S1,S2,S2
+  * P1,P2,P3
+* Isolated
+  * I1V2,I2V2,I3V2
+### WebJobs
+Schedule uses [Ncrontab](https://github.com/atifaziz/NCrontab)
+* {second} {minute} {hour} {day} {month} {day-of-week}
+
+# Azure Backup
+A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
+
+* **M**icrosoft **A**zure **R**ecovery **S**ervices agent
+  * Runs on individual on-premises Windows Server machines to back up files, folders, and the system state.
+  * Runs on Azure VMs to back up files, folders, and the system state.
+  * Runs on DPM/MABS servers to back up the DPM/MABS local storage disk to Azure.
+* Azure VM extension
+  * Runs on Azure VMs to back them up to a vault.
+
+To create a vault to protect any data source, the vault must be in the same region as the data source.
+
+# Azure AD
+## Device Management
+Get device identity
+* Azure AD registration
+* Azure AD Join
+  * Windows 10
+  * Windows Server 2019
+* Hybrid Azure AD Join
+  * Windows 7 and Server 2008 onwards
