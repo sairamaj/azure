@@ -36,11 +36,15 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * Virtual network NAT
   * [Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview?context=/azure/virtual-machines/context/context#virtual-network-nat)
 
+___
+
  # Monitoring
  * **SMS**: No more than 1 SMS every 5 minutes.
  * **Voice**: No more than 1 Voice call every 5 minutes.
  * **Email**: No more than 100 emails in an hour
  [rate limits](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-rate-limiting)
+
+___
 
  # Load Balancer
  A public load balancer can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VM.
@@ -51,6 +55,8 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * A **zonal frontend** is a reduction of the service to a single zone and shares fate with the respective zone. If the zone your deployment is in goes down, your deployment will not survive this failure
 
 * The outbound rules tab is only valid for a public standard load balancer. Outbound rules are not supported on an internal or basic load balancer. Azure Virtual Network NAT is the recommended way to provide outbound internet access for the backend pool.
+
+___
 
 # Service Bus
 Compatible with
@@ -84,6 +90,8 @@ Compatible with
 * Maximum delivery count
   * The default value is 10. Whenever a message has been delivered under a peek-lock, but has been either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ.
 
+___
+
 # Computer Vision API
 * Analyze Image
 * OCR - Optical Character Recognition
@@ -110,12 +118,22 @@ Compatible with
   * P1,P2,P3
 * Isolated
   * I1V2,I2V2,I3V2
+
+* F1 & D1 don't suport client TLS
+
+___
+
 ### WebJobs
 Schedule uses [Ncrontab](https://github.com/atifaziz/NCrontab)
 * {second} {minute} {hour} {day} {month} {day-of-week}
 
+___
+
 # Azure Backup
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
+
+* You can only select VMs in the same region as the vault.
+* VMs can only be backed up in a single vault
 
 * **M**icrosoft **A**zure **R**ecovery **S**ervices agent
   * Runs on individual on-premises Windows Server machines to back up files, folders, and the system state.
@@ -126,6 +144,7 @@ A Recovery Services vault is a logical container that stores the backup data for
 
 To create a vault to protect any data source, the vault must be in the same region as the data source.
 
+___
 # Azure AD
 ## Device Management
 Get device identity
@@ -135,3 +154,97 @@ Get device identity
   * Windows Server 2019
 * Hybrid Azure AD Join
   * Windows 7 and Server 2008 onwards
+
+## Conditional policy
+* Requiring multi-factor authentication for users with administrative roles
+* Requiring multi-factor authentication for Azure management tasks
+* Blocking sign-ins for users attempting to use legacy authentication protocols
+* Requiring trusted locations for Azure AD Multi-Factor Authentication registration
+* Blocking or granting access from specific locations
+* Blocking risky sign-in behaviors
+* Requiring organization-managed devices for specific applications
+
+* Administrative Units
+  * Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users and groups.
+
+* PIM
+  * P2 
+  * Global administrator, Privileged Global administrator.
+  * Eligible/Active
+  
+___
+
+# Resource Locks
+
+* **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource.
+* **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the Reader role
+
+* A read-only lock on a resource group that contains a virtual machine prevents all users from starting or restarting the virtual machine. These operations require a **POST request**
+* A read-only lock on a storage account doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted or modified, and doesn't protect blob, queue, table, or file data within that storage account
+
+[lock resource](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?tabs=json)
+
+When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence
+
+# SQL
+* Column Encryption
+  * [Column Encryption](https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell#encrypt-columns-configure-always-encrypted)
+  * Always Encrypted
+  * Master Key configuraiton
+
+* The elastic query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database
+
+# Hybrid Identity
+Azure AD Connect installs an on-premises service which orchestrates synchronization between Active Directory and Azure Active Directory
+* sAMAccountName attribute must be included in the attribute inclusion list to export a user object to Active Directory because all user objects in Active Directory must have a sAMAccountName attribute defined
+
+
+* In Express settings, the installation wizard asks for the following:
+  * AD DS Enterprise Administrator credentials
+    * The AD DS Enterprise Admin account is used to configure your on-premises Active Directory. These credentials are only used during the installation and are not used after the installation has completed
+  * Azure AD Global Administrator credentials
+    * These credentials are only used during the installation and are not used after the installation has completed.
+
+[Comparision Azure AD Connect vs Cloud Sync](https://docs.microsoft.com/en-us/azure/active-directory/cloud-sync/what-is-cloud-sync?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Factive-directory%2Fcloud-sync%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* No pass through for Cloud Sync.
+
+[add connect](https://www.youtube.com/hashtag/aadconnect)
+
+[two ways to select the domains to be synchronized: - Using the Synchronization Service - Using the Azure AD Connect wizard](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#select-the-domains-to-be-synchronized)
+
+The Synchronization Rules Editor is used to see and **change the default configuration** (If question is to stop existing sync, then it is rule editor.)
+
+____
+
+
+# QnA Maker
+* Add customer question/answer content - QnA Maker management service
+* Use Azure application insights resource for analysis - QnA Maker runtime
+* Update and train a knowledge base - QnA Maker management service
+
+____
+
+
+# Blue Prints
+* Role Assignments
+* Policy Assignments
+* Azure Resource Manager templates(ARM templates)
+* Resource Groups
+
+____
+
+# Azure Kubernetes Service(AKS)
+
+When you create an AKS cluster, Azure also creates a service principal to support cluster operability with other Azure resources. This service principal can already authenticate to AAD (since it was created in AAD).
+But it needs to be RBAC permissions on the ACR Registry to pull images. To do so, you need to create an Azure AD role assignment that grants the cluster's service principal access to the container registry.
+
+____
+
+# General
+* You are developing a speech-enabled home automation control bot.The bot interprets some spoken words incorrectly.You need to improve the spoken word recognition for the bot.
+What should you implement?
+* The web channel chat and Speech priming using Bing Speech and Service and LUIS app.
+
+* You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
+* Add host name to Contoso1812
+* Upload PFX file to Contoso1812
