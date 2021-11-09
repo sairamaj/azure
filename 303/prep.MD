@@ -36,6 +36,16 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * Virtual network NAT
   * [Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview?context=/azure/virtual-machines/context/context#virtual-network-nat)
 
+* Azure IAAS need access to the encryption keys in your key vault to make them available to the VM for encrypting and decrypting the volumes.
+* Set-AzureRmVMDiskEncryptionExtension - Enables encryption on a running IaaS virtual machine in Azure.
+
+* Hyper-V VMs migration 
+  * Disk size
+    * 2TB for Gen-1, 300GB for Gen-2
+    * Data Disk VHD size: 4TB
+* VMWare
+  * Disk size
+    * up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks
 ___
 
  # Monitoring
@@ -191,6 +201,15 @@ When you apply a lock at a parent scope, all resources within that scope inherit
   * [Column Encryption](https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell#encrypt-columns-configure-always-encrypted)
   * Always Encrypted
   * Master Key configuraiton
+* Failover
+  * The secondary cannot be in the same region as the primary for fail over.
+  * For two managed instances to participate in a failover group, there must be either ExpressRoute or a VPN gateway configured between the virtual networks of the two managed instances to allow network communication.
+  * Global VNet Peering is not supported.
+
+*  Use a system-assigned identity for a Windows virtual machine (VM) to access Azure SQL Database. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code.
+  * Create a contained user in the database that represents the VM's system assigned identity
+  * Get an access token using the VM identity and use it to query Azure SQL Database
+
 
 * The elastic query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database
 
@@ -248,3 +267,21 @@ What should you implement?
 * You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
 * Add host name to Contoso1812
 * Upload PFX file to Contoso1812
+
+# CosmoDB
+Account -> Database -> Containers -> Items
+
+* Microsoft recommends using the same API for all access to the data in a given account.
+* One throughput provisioned container per subscription for SQL, Gremlin API, and Table accounts.
+* Up to three throughput provisioned collections per subscription for MongoDB accounts.
+* The throughput provisioned on an Azure Cosmos container is exclusively reserved for that container. The container receives the provisioned throughput all the time.
+
+* Throughput
+  * The throughput provisioned on an Azure Cosmos container is exclusively reserved for that container
+  * most frequently used option
+  * provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database
+  [doc](https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#set-throughput-on-a-container)
+
+# Key Vault
+* Access to a key vault is controlled through two interfaces: the management plane and the data plane. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates. To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
+* Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
