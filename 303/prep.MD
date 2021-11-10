@@ -131,6 +131,7 @@ ___
 
 * F1 & D1 don't suport client TLS
 
+* The Standard service plan is designed for running production workloads. Pricing is based on the size and number of instances you run. Built-in network load-balancing support automatically distributes traffic across instances. The Standard plan includes auto-scale which can automatically adjust the number of virtual machine instances running to match your traffic needs. The Standard service plan with Linux runtime environments supports Web App for Containers.
 ___
 
 ### WebJobs
@@ -210,6 +211,7 @@ When you apply a lock at a parent scope, all resources within that scope inherit
   * Create a contained user in the database that represents the VM's system assigned identity
   * Get an access token using the VM identity and use it to query Azure SQL Database
 
+* Microsoft SQL Server Always On availability group on Azure virtual machines.You need to configure an Azure internal load balancer as a listener for the availability group. Backend port should use Floating IP
 
 * The elastic query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database
 
@@ -257,6 +259,9 @@ ____
 When you create an AKS cluster, Azure also creates a service principal to support cluster operability with other Azure resources. This service principal can already authenticate to AAD (since it was created in AAD).
 But it needs to be RBAC permissions on the ACR Registry to pull images. To do so, you need to create an Azure AD role assignment that grants the cluster's service principal access to the container registry.
 
+* To connect to cluster
+  * az aks install-cli
+  * az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ____
 
 # General
@@ -285,3 +290,12 @@ Account -> Database -> Containers -> Items
 # Key Vault
 * Access to a key vault is controlled through two interfaces: the management plane and the data plane. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates. To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 * Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
+
+# Migration
+* An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project you can track discovered assets, create assessments, and orchestrate migrations to Azure.
+* Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises machines and sends machine metadata and performance data to Azure Migrate. Deploy the appliance as a VM or a physical machine. You don't need to install anything on machines that you want to assess.
+* After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group with assessment type Azure VM
+
+# Azure container instance
+* A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a pod in Kubernetes.
+[groups](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-container-groups)

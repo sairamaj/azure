@@ -37,12 +37,19 @@
   * Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in VHD file format and that have a fixed-size disk. The maximum size allowed for the OS VHD on a generation 1 VM is 2 TB.
 * You can convert a VHDX file to VHD, convert a dynamically expanding disk to a fixed-size disk, but you can't change a VM's generation
 
+____
+
 # Monitor
 * You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+
+____
 
 
 # NSG
 * All NICs assigned to an application security group have to exist in the same VNET1 , NICs in Subnet11 and Subnet12  are linked to VNET1 can be configured in ASG
+
+____
+
 
 ## Routing
 * Azure selects the route type, based on the following priority:
@@ -50,9 +57,15 @@
   * BGP route
   * System route
 
+____
+
+
 # Security
 * Adaptive application controls 
   * are an intelligent and automated solution for defining allow lists of known-safe applications for your machines.Often, organizations have collections of machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
+
+____
+
 
 # Roles
 ## Built-In roles
@@ -66,11 +79,19 @@
   * Lets you manage user access to Azure resources.
 [built-in roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
 
+____
+
+
 # Recovery Service Vault
 * You can't delete a vault that contains protected data sources (for example, IaaS VMs, SQL databases, Azure file shares).
 * You can't delete a vault that contains backup data. Once backup data is deleted, it will go * into the soft deleted state.
 * You can't delete a vault that contains backup data in the soft deleted state.
 * You can't delete a vault that has registered storage accounts.
+
+* Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter
+
+____
+
 
 # Domain
 * You can use TXT or MX record to verify domain
@@ -97,6 +118,11 @@
 * A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth
 * Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your VNet in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
 * /27 or larger (/27,/26, /25 etc.)
+
+* P2S connection wont' support policy based routing. Required Route based VPN
+
+* Azure Point-to-Site VPN currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you **make a change to the topology of your network** and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and **installed again** in order for the changes to be applied to the client
+
 
 # Azure File Sync 
 To centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
