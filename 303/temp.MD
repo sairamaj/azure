@@ -88,6 +88,23 @@ ____
 * You can't delete a vault that contains backup data in the soft deleted state.
 * You can't delete a vault that has registered storage accounts.
 
+* Enabling recovery
+  * Azure VMs
+  * Hyper VMs
+    * No System Center VMM
+      * Hyper-V site
+    * Yes System Center VMM
+      * System center
+    * download Microsoft Azure Site Recovery Provider
+    * Download the vault registration key
+    * Install AzureSiteRecoveryProvider.exe on each Hyper-V host that you want to add to the Hyper-V site
+    * Set up a replication policy
+    [tutorial](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-tutorial)
+  * VMWare VMs
+
+    
+  * VMWare VMs
+
 * Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter
 
 ____

@@ -46,6 +46,10 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * VMWare
   * Disk size
     * up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks
+  
+* The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows or Linux virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory
+
+* Using managed disks, you can create up to 50,000 VM disks of a type in a subscription per region, allowing you to create thousands of VMs in a single subscription. This feature also further increases the scalability of virtual machine scale sets by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image.
 ___
 
  # Monitoring
@@ -197,6 +201,8 @@ ___
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence
 
+____
+
 # SQL
 * Column Encryption
   * [Column Encryption](https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell#encrypt-columns-configure-always-encrypted)
@@ -214,6 +220,9 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 * Microsoft SQL Server Always On availability group on Azure virtual machines.You need to configure an Azure internal load balancer as a listener for the availability group. Backend port should use Floating IP
 
 * The elastic query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database
+
+* Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price.
+_____
 
 # Hybrid Identity
 Azure AD Connect installs an on-premises service which orchestrates synchronization between Active Directory and Azure Active Directory
@@ -299,3 +308,14 @@ Account -> Database -> Containers -> Items
 # Azure container instance
 * A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a pod in Kubernetes.
 [groups](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-container-groups)
+
+____
+
+# Virtual Network
+* Virtual Network (VNet) service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Service Endpoints enables private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
+
+_____
+
+# Azure Files
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
+
