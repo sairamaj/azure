@@ -26,6 +26,9 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 
 * Shared Disks
   * Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure
+
+* Throughput are guaranteed when a premium storage disk and also to Ultra disks.
+
 * Encryption
  * Azure Disk Encryption(ADE)
  * Server side encryption
@@ -50,6 +53,16 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows or Linux virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory
 
 * Using managed disks, you can create up to 50,000 VM disks of a type in a subscription per region, allowing you to create thousands of VMs in a single subscription. This feature also further increases the scalability of virtual machine scale sets by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image.
+
+* Virtual machine needs to be located in the same region as Virtual network.
+* Azure machine and key vault should be in the same region for disk encryption. Both windows and linux machines can do disk encryption.
+
+* Bastion 
+  * Name of the subnet is AzureBasionSubnet
+  * Address is at least /26
+    * /26 is valid
+    * /25 is valid (bigger)
+    * /27 is invalid (smaller)
 ___
 
  # Monitoring
@@ -159,6 +172,9 @@ A Recovery Services vault is a logical container that stores the backup data for
 
 To create a vault to protect any data source, the vault must be in the same region as the data source.
 
+* On premises server with  Windows Admin Center
+  * Register windows admin server with and configure azure backup
+  * Windows server backup cannot be used with azure backup
 ___
 # Azure AD
 ## Device Management
@@ -212,6 +228,7 @@ ____
   * The secondary cannot be in the same region as the primary for fail over.
   * For two managed instances to participate in a failover group, there must be either ExpressRoute or a VPN gateway configured between the virtual networks of the two managed instances to allow network communication.
   * Global VNet Peering is not supported.
+  * Primary and secondary should be in the same resource group.
 
 *  Use a system-assigned identity for a Windows virtual machine (VM) to access Azure SQL Database. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code.
   * Create a contained user in the database that represents the VM's system assigned identity
@@ -222,6 +239,10 @@ ____
 * The elastic query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database
 
 * Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price.
+
+* Always Encrypted with **secure enclaves** expands confidential computing capabilities of Always Encrypted by enabling in-place encryption and richer confidential queries. Always Encrypted with secure enclaves is available in SQL Server 2019 (15.x) and in Azure SQL Database
+
+* Always on availability is the high availability mechansim for SQL servers running on Azure virtual machines.
 _____
 
 # Hybrid Identity
@@ -244,6 +265,14 @@ Azure AD Connect installs an on-premises service which orchestrates synchronizat
 
 The Synchronization Rules Editor is used to see and **change the default configuration** (If question is to stop existing sync, then it is rule editor.)
 
+Azure AD Connect Health for monitor and should have AD Premium 1 license
+
+* AD Connect Staging mode
+  * scenarios
+    * High availability
+    * Test and deploy new configuration changes
+    * Introduces new server and decommisions old one.
+  * During installation, you can select the server to be in staging mode. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
 ____
 
 
@@ -296,6 +325,16 @@ Account -> Database -> Containers -> Items
   * provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database
   [doc](https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#set-throughput-on-a-container)
 
+* ID is generated it not specified
+* Partition key can be missing the data.
+
+* Throughput
+  * RU
+    * The cost to do a point read (i.e. fetching a single item by its ID and partition key value) for a 1 KB item is 1 Request Unit.
+  * Provisioned
+    * Manual scale
+    * Auto scale
+  * Server less
 # Key Vault
 * Access to a key vault is controlled through two interfaces: the management plane and the data plane. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates. To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 * Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
@@ -319,3 +358,326 @@ _____
 # Azure Files
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
+____
+
+# Service Health
+
+____
+
+# Traffic Manager
+
+[How to send Real User Measurements to Azure Traffic Manager using web pages](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-rum-web-pages)
+JavaScript code snippet that needs to be embedded into your HTML page.
+
+____
+
+# Logic App
+The Consumption resource type runs in the multi-tenant Azure Logic Apps or integration service environment, while the Standard resource type runs in single-tenant Azure Logic Apps environment
+
+____
+
+# Azure Storage
+[sku types](https://docs.microsoft.com/en-us/rest/api/storagerp/srp_sku_types)
+* sku: name: redundency type Standard_LRS
+* sku: tier: blob container performance type
+* kind: storage account type (ex:    kind:Storage, BlobStorage, StorageV2 )
+
+___
+
+# Auto scale example
+* Configuration
+  * scale out >70 by 2
+  * min=1, max=6, default=2
+  * duration=20, cool down=10
+* Scenario
+  * 8:00 cpu : 50
+  * 9:00 cpu:  75
+* Question
+  * How many instances at 9:35
+  * as duration is 20 , the first scale will happen at : 9:20
+  * instances will be 2+2 = 4
+  * cool down to 10mins
+  * reaches 9:30
+  * as duration is 20mins
+  * next evaluation happens at 9:50
+  * at 9:50 if it is still 75 it would have gone by 2 more which is 6
+  * question is at 9:35, how many instances? ans: 4
+
+____
+
+# Azure Firewall manager
+Azure Firewall Manager is a security management service that provides central security policy and route management for cloud-based security perimeters
+
+_____
+
+* Azure MFA can be enforced in multiple ways (Security Administrator,Conditional Access Administrator, Global Administrator)
+  * Through conditional access policy
+    * Signal
+      * User and location
+      * Application
+      * Device
+      * Real-time risk
+    * Access
+      * Block
+      * Grant (with MFA)
+  * Through security defaults
+  * By instituting per-user MFA
+  * Through Azure identity protection
+    * Automate the detection and remediation of identity-based risks
+    * Investigate risks using data in the portal.
+    * Export risk detection to third party tools for further analysis.
+
+* MFA can also be trigged by
+  * Requring MFA for device registration on your tenant device settings
+  * To complete self-service password reset.
+  * Per request by the application,such as federation IDP like ADFS requring MFA be performed.
+  [mfa-video](https://www.youtube.com/watch?v=qNndxl7gqVM&ab_channel=MicrosoftSecurity)
+
+  # File Import/Export
+  ## Azure files
+  * WAImportExport.exe
+  * dataset.csv
+  * driveset.csv
+
+  # General
+  * Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the Test-NetConnection cmdlet.
+
+  # Azure resource move
+  * Move-AzureRmResource
+
+  # Migration
+  * Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in VHD file format and that have a fixed-size disk. The maximum size allowed for the OS VHD on a generation 1 VM is 2 TB.
+* You can convert a VHDX file to VHD, convert a dynamically expanding disk to a fixed-size disk, but you can't change a VM's generation
+
+____
+
+# Monitor
+* You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+
+____
+
+
+# NSG
+* All NICs assigned to an application security group have to exist in the same VNET1 , NICs in Subnet11 and Subnet12  are linked to VNET1 can be configured in ASG
+
+____
+
+
+## Routing
+* Azure selects the route type, based on the following priority:
+  * User-defined route
+  * BGP route
+  * System route
+
+____
+
+
+# Security
+* Adaptive application controls 
+  * are an intelligent and automated solution for defining allow lists of known-safe applications for your machines.Often, organizations have collections of machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
+
+____
+
+
+# Roles
+## Built-In roles
+* Contributor
+  * Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+* Owner
+  * Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
+* Reader
+  * View all resources, but does not allow you to make any changes.
+* User Access Administrator
+  * Lets you manage user access to Azure resources.
+[built-in roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
+
+____
+
+
+# Recovery Service Vault
+
+* You can't delete a vault that contains protected data sources (for example, IaaS VMs, SQL databases, Azure file shares).
+* You can't delete a vault that contains backup data. Once backup data is deleted, it will go * into the soft deleted state.
+* You can't delete a vault that contains backup data in the soft deleted state.
+* You can't delete a vault that has registered storage accounts.
+
+* Enabling recovery
+  * Azure VMs
+  * Hyper VMs
+    * No System Center VMM
+      * Hyper-V site
+    * Yes System Center VMM
+      * System center
+    * download Microsoft Azure Site Recovery Provider
+    * Download the vault registration key
+    * Install AzureSiteRecoveryProvider.exe on each Hyper-V host that you want to add to the Hyper-V site
+    * Set up a replication policy
+    [tutorial](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-tutorial)
+  * VMWare VMs
+
+    
+  * VMWare VMs
+
+* Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter
+
+____
+
+# Domain
+* You can use TXT or MX record to verify domain
+____
+
+# Storage
+* Zone-redundant storage (ZRS) replicates your Azure Storage data synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS offers durability for Azure Storage data objects of at least 99.9999999999% (12 9's) over a given year.
+* Blob storage and V1 wont support ZRS
+* Premimum application is available only for the LRS
+
+[sas terms](https://docs.microsoft.com/en-us/answers/questions/67751/azure-sas-terms.html)
+
+## AD Connect
+* When you're synchronizing user accounts from Active Directory to Azure AD, ensure that the UPNs in Active Directory map to verified domains in Azure AD.If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, the synchronization process replaces the suffix with a default .onmicrosoft.com value.
+* To use on premisis creadential for Azure AD sign-in, UPS suffix should match one of the verified custom domain in Azure AD.
+* Suppose you have an Azure AD Connect with Password Hash Synchronization feature enabled. When you enable staging mode, the server stops synchronizing password changes from on-premises AD. When you disable staging mode, the server resumes synchronizing password changes from where it last left off. If the server is left in staging mode for an extended period of time, it can take a while for the server to synchronize all password changes that had occurred during the time period.
+
+# Advisor
+* Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the Cost tab on the Advisor dashboard.
+
+# Virtual Network
+* Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type VPN. You cannot specify a virtual network gateway created as type ExpressRoute in a user-defined route because with ExpressRoute, you must use BGP for custom routes
+
+# Virtual Network Gateway
+* A virtual network gateway is composed of two or more VMs that are deployed to a specific subnet you create called the gateway subnet. Virtual network gateway VMs contain routing tables and run specific gateway services. These VMs are created when you create the virtual network gateway. You can't directly configure the VMs that are part of the virtual network gateway.A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway.
+
+# VPN Gateway
+* A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth
+* Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your VNet in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
+* /27 or larger (/27,/26, /25 etc.)
+
+* P2S connection wont' support policy based routing. Required Route based VPN
+
+* Azure Point-to-Site VPN currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you **make a change to the topology of your network** and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and **installed again** in order for the changes to be applied to the client
+
+
+# Azure File Sync 
+To centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+
+* Install the Azure file sync agent on server1
+* Register server1
+* Add server end point
+
+# Virtual Machine scale sets
+* When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the extensionProfile section to the preceding resource example. The extension profile typically defines the following properties:
+
+* Extension type
+* Extension publisher
+* Extension version
+* Location of configuration or install scripts
+* Commands to execute on the VM instances
+
+# General
+* Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security (EMS) license
+
+# App Service
+* The Backup and Restore feature requires the App Service plan to be in the Standard, Premium or Isolated tier.
+
+# SQL on VM
+* An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files.
+
+# Service Tags
+* *service tags to define network access controls on network security groups or Azure Firewall. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as ApiManagement, in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.
+* You can also use Service Tags in place of explicit IP ranges in user defined routes. This feature is currently in Public Preview.
+
+# Roles
+* Name
+* Id
+* IsCustom
+* Description
+* Actions []
+* NotActions []
+* DataActions []
+* NotDataActions []
+* AssignableScopes []
+
+_____
+
+# Docker
+* ADD and COPY are functionally similar, generally speaking, COPY is preferred. That’s because it’s more transparent than ADD. COPY only supports the basic copying of local files into the container, while ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, the best use for ADD is local tar file auto-extraction into the image, as in ADD rootfs.tar.xz /.
+
+* COPY Commands
+  * Working 
+```cmd
+  # forward slash
+  COPY test1.txt /temp/
+  COPY test1.txt c:/temp/
+```
+  * Non working
+```cmd
+  # backward slash wont work
+  COPY test1.txt c:\temp\
+```
+  * If either source or destination has space
+  ```cmd
+  COPY ["<source>", "<destination>"]
+  ```
+* ADD
+  * Is same as COPY
+  * In Linux  will expand compressed packages on copy (not available in windows)
+[docker container commands](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile)
+
+____
+
+# Access Reviews
+* Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+  * Users assigned as eligible to Azure AD or Azure roles managed using PIM
+  * Users who are assigned as eligible members or owners of privileged access groups
+  * Users able to approve or reject activation requests in PIM
+  * Users assigned to an access review
+  * Users who perform access reviews
+
+# AD Connect
+* Domain account - Domain user account  , During installation of AD , a new domain user created and later stage it used for AD connect SYNC
+* Enterprise admin used for AD connect installation and not for AD connect SYNC
+
+____
+
+# Azure Sentinel
+Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+
+# Identity Protection
+* Identity Protection is a tool that allows organizations to accomplish three key tasks:
+  * Automate the detection and remediation of identity-based risks.
+  * Investigate risks using data in the portal.
+  * Export risk detection data to your SIEM.
+
+* Protect
+  * User risk policy
+  * Sign-in risk policy
+  * MFA registration policy
+* Report
+  * Risky users
+  * Risky sign-ins
+  * Risk detection
+* Notify
+  * Users at risk detected alerts
+  * Weekly digest
+____
+# Azure Security Center (Microsoft Defender)
+Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
+* compliance dashboard to review your compliance with the built-in benchmark.
+
+* **Sentinel deep investigation** tools helps in understanding thes scope and finding the root cause of potential thread.
+* **Sentinel powerful hunting search and query tools** allow to proactively hunt for security threats across the data sources of the organization before an alerts is triggered. it does not help in finding the root cause of the problem.
+
+____
+
+# Function Apps
+* Plans
+  * Consumption
+  * Premimum
+  * App Service
+  [plans](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale?WT.mc_id=Portal-WebsitesExtension)
+
+  ___
+
+  # MFA and SSPR (Single signon password reset)
+  ![mfa](./images/mfa_sspr.png)
+  
