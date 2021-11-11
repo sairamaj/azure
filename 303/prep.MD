@@ -12,6 +12,9 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * Disk encryption
   * dm-crypt subsystem in Linux to provide full disk encryption 
   * leverages BitLocker to provide full disk encryption on Azure virtual machines running Windows
+  * -VolumeType-All
+    * If you specify volumetype-all when enabling encryption, this is applicable to all all new disks
+    * Works for both managed and unmanaged.
 * Network watcher
   * Azure Network Watcher is a network performance monitoring, diagnostic, and analytics service that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines.
 * Restricting agent installation
@@ -149,6 +152,7 @@ ___
 * F1 & D1 don't suport client TLS
 
 * The Standard service plan is designed for running production workloads. Pricing is based on the size and number of instances you run. Built-in network load-balancing support automatically distributes traffic across instances. The Standard plan includes auto-scale which can automatically adjust the number of virtual machine instances running to match your traffic needs. The Standard service plan with Linux runtime environments supports Web App for Containers.
+* Shared plan does not support auto scaling.
 ___
 
 ### WebJobs
@@ -243,6 +247,12 @@ ____
 * Always Encrypted with **secure enclaves** expands confidential computing capabilities of Always Encrypted by enabling in-place encryption and richer confidential queries. Always Encrypted with secure enclaves is available in SQL Server 2019 (15.x) and in Azure SQL Database
 
 * Always on availability is the high availability mechansim for SQL servers running on Azure virtual machines.
+
+* Transactions
+  * Elastic database transactions for Azure SQL Database (Preview) and Azure SQL Managed Instance allow you to run transactions that span several databases.
+  * On premises, such a scenario usually requires running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC isn't available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database or SQL Managed Instance.
+  * A server-side experience (code written in stored procedures or server-side scripts) using Transact-SQL is available for SQL Managed Instance only.
+  * Running elastic database transactions between Azure SQL Database and Azure SQL Managed Instance is not supported. Elastic database transaction can only span across a set of databases in SQL Database or a set databases across managed instances
 _____
 
 # Hybrid Identity
@@ -273,6 +283,8 @@ Azure AD Connect Health for monitor and should have AD Premium 1 license
     * Test and deploy new configuration changes
     * Introduces new server and decommisions old one.
   * During installation, you can select the server to be in staging mode. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
+
+* To perform what domains are synchronized on to Azure AD, you can use either Synchronization Manager or the Azure AD connect wizard.
 ____
 
 
@@ -403,6 +415,7 @@ ___
   * at 9:50 if it is still 75 it would have gone by 2 more which is 6
   * question is at 9:35, how many instances? ans: 4
 
+* In case of multiple auto scaling conditions , the most important to remember: for the **scale-out** process, only **one** condition to meet is enough, and for **scale-in**, you need to meet **all** of them.
 ____
 
 # Azure Firewall manager
