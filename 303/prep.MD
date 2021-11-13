@@ -153,6 +153,9 @@ ___
 
 * The Standard service plan is designed for running production workloads. Pricing is based on the size and number of instances you run. Built-in network load-balancing support automatically distributes traffic across instances. The Standard plan includes auto-scale which can automatically adjust the number of virtual machine instances running to match your traffic needs. The Standard service plan with Linux runtime environments supports Web App for Containers.
 * Shared plan does not support auto scaling.
+
+[diagnostic logging] https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs
+[configure logging](https://docs.microsoft.com/en-us/learn/modules/capture-application-logs-app-service/2-enable-and-configure-app-service-application-logging)
 ___
 
 ### WebJobs
@@ -312,6 +315,9 @@ But it needs to be RBAC permissions on the ACR Registry to pull images. To do so
 * To connect to cluster
   * az aks install-cli
   * az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+
+[container monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-onboard)
+[monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-analyze)
 ____
 
 # General
@@ -636,6 +642,11 @@ _____
   * In Linux  will expand compressed packages on copy (not available in windows)
 [docker container commands](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile)
 
+* RUN vs CMD vs ENTRYPOINT
+  * Use RUN instructions to build your image by adding layers on top of initial image.
+  * Prefer ENTRYPOINT to CMD when building executable Docker image and you need a command always to be executed. Additionally use CMD if you need to provide extra default arguments that could be overwritten from command line when docker container runs.
+  * Choose CMD if you need to provide a default command and/or arguments that can be overwritten from command line when docker container runs.
+  * [more info](https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/)
 ____
 
 # Access Reviews
@@ -687,6 +698,9 @@ ____
   * Consumption
   * Premimum
   * App Service
+    * You have existing, underutilized VMs that are already running other App Service instances.
+    * Predictive scaling and costs are required.
+
   [plans](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale?WT.mc_id=Portal-WebsitesExtension)
 
   ___
@@ -694,3 +708,12 @@ ____
   # MFA and SSPR (Single signon password reset)
   ![mfa](./images/mfa_sspr.png)
   
+  ___
+
+  # Containers
+  Windows containers provider do isolation models
+  * Process
+    * Share the same kernel.
+  * Hyper-V
+    * Donot run the same kernel. Creates highly optimized virtual machines.
+    
