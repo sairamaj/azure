@@ -650,7 +650,7 @@ _____
 ____
 
 # Access Reviews
-* Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+* Ensure that your directory has at least as many Azure AD Premium P2 licenses and Enterprise Mobility + Security (EMS) E5 license as you have employees that will be performing the following tasks:
   * Users assigned as eligible to Azure AD or Azure roles managed using PIM
   * Users who are assigned as eligible members or owners of privileged access groups
   * Users able to approve or reject activation requests in PIM
@@ -717,3 +717,6 @@ ____
   * Hyper-V
     * Donot run the same kernel. Creates highly optimized virtual machines.
     
+  # SSPR
+  * Require Premimum P1 license
+  * Admins are always enabled for self-service password reset and are required to use two authentication methods to reset their password. Click here to learn more about administrator password policies.
