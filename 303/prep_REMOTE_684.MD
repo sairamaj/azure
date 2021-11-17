@@ -210,14 +210,6 @@ Get device identity
   * Global administrator, Privileged Global administrator.
   * Eligible/Active
   
-* Password write back
-  * A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
-  * An account with global administrator privileges.
-  * Azure AD configured for self-service password reset.
-  * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
-  * To use password writeback, your Domain Controllers must be Windows Server 2016 or later.
-
-____
 * Express Settings is used when you have a single-forest topology and password hash synchronization for authentication.
 * Object limits
  * 50,000 without domain verificaiton
@@ -338,6 +330,15 @@ But it needs to be RBAC permissions on the ACR Registry to pull images. To do so
 [monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-analyze)
 ____
 
+# General
+* You are developing a speech-enabled home automation control bot.The bot interprets some spoken words incorrectly.You need to improve the spoken word recognition for the bot.
+What should you implement?
+* The web channel chat and Speech priming using Bing Speech and Service and LUIS app.
+
+* You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
+* Add host name to Contoso1812
+* Upload PFX file to Contoso1812
+
 # CosmoDB
 Account -> Database -> Containers -> Items
 
@@ -385,21 +386,6 @@ _____
 # Azure Files
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
-_______
-
-# General
-* You are developing a speech-enabled home automation control bot.The bot interprets some spoken words incorrectly.You need to improve the spoken word recognition for the bot.
-What should you implement?
-* The web channel chat and Speech priming using Bing Speech and Service and LUIS app.
-
-* You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
-* Add host name to Contoso1812
-* Upload PFX file to Contoso1812
-
-* To deny storage account to public access
-```powershell
-Update-AzStorageAccountNetworkRuleSet -DefaulAction Deny -ResourceGroupName rg -Name storageaccount
-```
 ____
 
 # Service Health
