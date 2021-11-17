@@ -210,6 +210,16 @@ Get device identity
   * Global administrator, Privileged Global administrator.
   * Eligible/Active
   
+* Express Settings is used when you have a single-forest topology and password hash synchronization for authentication.
+* Object limits
+ * 50,000 without domain verificaiton
+ * 300,000 with domain verification
+ * if more than 500,000 then you need Azure AD Premium, or Enterprise Mobility + Security.
+* idFix is used to identify errors
+* Active directory DC server can be 2003 but password writeback the DC should be 2016 or later.
+* DC should be writable.
+* Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later
+[more requirements](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server)
 ___
 
 # Resource Locks
@@ -720,3 +730,25 @@ ____
   # SSPR
   * Require Premimum P1 license
   * Admins are always enabled for self-service password reset and are required to use two authentication methods to reset their password. Click here to learn more about administrator password policies.
+
+  ___
+
+  # Scale sets
+  * Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Azure Compute Gallery. If you create a scale set using a managed image, the limit is 600 VM instances.
+
+  ___
+
+  # Public IP
+  * SKU should match with load balancer.
+  * Basic
+    * Inbound traffic open by default
+    * Not zone-redundant
+    * Offer dynamic and static
+  * Standard
+    * Inbound traffic close by default
+    * Zone-redundant
+    * Offer static only
+  * Duration
+    * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
+  * Cool down
+    * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
