@@ -210,6 +210,7 @@ Get device identity
   * Global administrator, Privileged Global administrator.
   * Eligible/Active
   
+<<<<<<< HEAD
 * Password write back
   * A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
   * An account with global administrator privileges.
@@ -218,6 +219,7 @@ Get device identity
   * To use password writeback, your Domain Controllers must be Windows Server 2016 or later.
 
 ____
+=======
 * Express Settings is used when you have a single-forest topology and password hash synchronization for authentication.
 * Object limits
  * 50,000 without domain verificaiton
@@ -229,6 +231,7 @@ ____
 * Azure AD Connect must be installed on a domain-joined Windows Server 2016 or later
 [more requirements](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server)
 ___
+>>>>>>> e5bd7cb596c2d0e5cc8ffad4a114d17bd5437946
 
 # Resource Locks
 
@@ -338,18 +341,6 @@ But it needs to be RBAC permissions on the ACR Registry to pull images. To do so
 [monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-analyze)
 ____
 
-# General
-* You are developing a speech-enabled home automation control bot.The bot interprets some spoken words incorrectly.You need to improve the spoken word recognition for the bot.
-What should you implement?
-* The web channel chat and Speech priming using Bing Speech and Service and LUIS app.
-
-* You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
-* Add host name to Contoso1812
-* Upload PFX file to Contoso1812
-
-[BGP](https://www.cloudflare.com/learning/security/glossary/what-is-bgp/)
-_______
-
 # CosmoDB
 Account -> Database -> Containers -> Items
 
@@ -397,6 +388,7 @@ _____
 # Azure Files
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments. Azure Files SMB file shares are accessible from Windows, Linux, and macOS clients. Azure Files NFS file shares are accessible from Linux or macOS clients. Additionally, Azure Files SMB file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
+<<<<<<< HEAD
 _______
 
 # General
@@ -412,6 +404,7 @@ What should you implement?
 ```powershell
 Update-AzStorageAccountNetworkRuleSet -DefaulAction Deny -ResourceGroupName rg -Name storageaccount
 ```
+=======
 ____
 
 # Service Health
@@ -778,10 +771,4 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
-<<<<<<< HEAD
-  
-  _____
-
-  
-=======
->>>>>>> b547faa593bcaf903fcb96768176ae85b2396f94
+>>>>>>> e5bd7cb596c2d0e5cc8ffad4a114d17bd5437946
