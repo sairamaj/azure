@@ -339,6 +339,9 @@ What should you implement?
 * Add host name to Contoso1812
 * Upload PFX file to Contoso1812
 
+[BGP](https://www.cloudflare.com/learning/security/glossary/what-is-bgp/)
+_______
+
 # CosmoDB
 Account -> Database -> Containers -> Items
 
@@ -752,3 +755,7 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
+  
+  _____
+
+  
