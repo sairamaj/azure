@@ -599,8 +599,12 @@ ____
 # Virtual Network
 * Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type VPN. You cannot specify a virtual network gateway created as type ExpressRoute in a user-defined route because with ExpressRoute, you must use BGP for custom routes
 
+____
+
 # Virtual Network Gateway
 * A virtual network gateway is composed of two or more VMs that are deployed to a specific subnet you create called the gateway subnet. Virtual network gateway VMs contain routing tables and run specific gateway services. These VMs are created when you create the virtual network gateway. You can't directly configure the VMs that are part of the virtual network gateway.A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway.
+
+_____
 
 # VPN Gateway
 * A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth
@@ -611,6 +615,8 @@ ____
 
 * Azure Point-to-Site VPN currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you **make a change to the topology of your network** and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and **installed again** in order for the changes to be applied to the client
 
+[different vpn toplogies](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
+_________
 
 # Azure File Sync 
 To centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
