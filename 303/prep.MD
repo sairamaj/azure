@@ -354,6 +354,18 @@ But it needs to be RBAC permissions on the ACR Registry to pull images. To do so
 [monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-analyze)
 ____
 
+# General
+* You are developing a speech-enabled home automation control bot.The bot interprets some spoken words incorrectly.You need to improve the spoken word recognition for the bot.
+What should you implement?
+* The web channel chat and Speech priming using Bing Speech and Service and LUIS app.
+
+* You have an Azure subscription.You create an Azure web app named Contoso1812 that uses an S1 App service plan.You create a DNS record for www.contoso.com that points to the IP address of Contoso1812.You need to ensure that users can access ontoso1812 by using the https://www.contoso.com URL. Which two actions should you perform? Each correct answer presents part of the solution.
+* Add host name to Contoso1812
+* Upload PFX file to Contoso1812
+
+[BGP](https://www.cloudflare.com/learning/security/glossary/what-is-bgp/)
+_______
+
 # CosmoDB
 Account -> Database -> Containers -> Items
 
@@ -603,8 +615,12 @@ ____
 # Virtual Network
 * Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type VPN. You cannot specify a virtual network gateway created as type ExpressRoute in a user-defined route because with ExpressRoute, you must use BGP for custom routes
 
+____
+
 # Virtual Network Gateway
 * A virtual network gateway is composed of two or more VMs that are deployed to a specific subnet you create called the gateway subnet. Virtual network gateway VMs contain routing tables and run specific gateway services. These VMs are created when you create the virtual network gateway. You can't directly configure the VMs that are part of the virtual network gateway.A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway.
+
+_____
 
 # VPN Gateway
 * A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth
@@ -615,6 +631,8 @@ ____
 
 * Azure Point-to-Site VPN currently supports two protocols for remote access, IKEv2 and SSTP. IKEv2 is supported on many client operating systems including Windows, Linux, macOS, Android, and iOS. SSTP is only supported on Windows. If you **make a change to the topology of your network** and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and **installed again** in order for the changes to be applied to the client
 
+[different vpn toplogies](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
+_________
 
 # Azure File Sync 
 To centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
@@ -782,6 +800,7 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
+<<<<<<< HEAD
 
 ____
 
