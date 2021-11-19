@@ -158,6 +158,7 @@ ___
 [configure logging](https://docs.microsoft.com/en-us/learn/modules/capture-application-logs-app-service/2-enable-and-configure-app-service-application-logging)
 ___
 
+
 ### WebJobs
 Schedule uses [Ncrontab](https://github.com/atifaziz/NCrontab)
 * {second} {minute} {hour} {day} {month} {day-of-week}
@@ -182,7 +183,22 @@ To create a vault to protect any data source, the vault must be in the same regi
 * On premises server with  Windows Admin Center
   * Register windows admin server with and configure azure backup
   * Windows server backup cannot be used with azure backup
-___
+
+* Valult Configuration
+  * Locally-redundant or Geo redudnant (cannot change after protecting items)
+  * Cross Region Restore
+
+* Azure Backup installs the AzureBackupWindowsWorkload extension on the VM for SQL.
+* Also SqlIaaSExtension  is required (SQL VMs created from market place has this already.)
+
+* On premises backup
+  * MARS agent for Files and Shares ( also known as Azure Backup agent or Recovery Services agent )
+  * MABS (Microsoft® Azure Backup Server v3) for other (ex: Hyper-V, VMWare etc.)
+
+[architecture](https://docs.microsoft.com/en-us/azure/backup/backup-architecture)
+
+____
+
 # Azure AD
 ## Device Management
 Get device identity
@@ -766,3 +782,8 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
+
+____
+
+# Windows Admin Center
+Is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production
