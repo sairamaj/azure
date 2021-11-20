@@ -698,11 +698,18 @@ ____
   * Users able to approve or reject activation requests in PIM
   * Users assigned to an access review
   * Users who perform access reviews
+____
 
 # AD Connect
 * Domain account - Domain user account  , During installation of AD , a new domain user created and later stage it used for AD connect SYNC
 * Enterprise admin used for AD connect installation and not for AD connect SYNC
 
+[youtube playlist](https://www.youtube.com/channel/UCaygCx4wubuH_ybV2NKx6lA/playlists)
+
+```powershell
+Invoke-ADSyncDiagnostics -PasswordSync # to trouble shoot AD (run this on AD Connect agent server).
+Stop-ADSyncSyncCycle # to stop synchronizaiton
+```
 ____
 
 # Azure Sentinel
