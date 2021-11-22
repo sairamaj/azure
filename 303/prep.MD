@@ -452,6 +452,8 @@ ____
 * sku: tier: blob container performance type
 * kind: storage account type (ex:    kind:Storage, BlobStorage, StorageV2 )
 
+* Firewall
+  * Virtual machine disk traffic (including mount and unmount operations, and disk IO) is not affected by network rules
 ___
 
 # Auto scale example
@@ -719,6 +721,8 @@ ____
 * Domain account - Domain user account  , During installation of AD , a new domain user created and later stage it used for AD connect SYNC
 * Enterprise admin used for AD connect installation and not for AD connect SYNC
 
+* When you're synchronizing user accounts from Active Directory to Azure AD, ensure that the UPNs in Active Directory map to verified domains in Azure AD.
+* If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, the synchronization process replaces the suffix with a default .onmicrosoft.com value.
 ____
 
 # Azure Sentinel
@@ -800,9 +804,13 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
-<<<<<<< HEAD
 
 ____
 
 # Windows Admin Center
 Is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production
+
+____
+
+# Azure Private DNS
+
