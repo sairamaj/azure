@@ -156,6 +156,11 @@ ___
 
 [diagnostic logging] https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs
 [configure logging](https://docs.microsoft.com/en-us/learn/modules/capture-application-logs-app-service/2-enable-and-configure-app-service-application-logging)
+
+* Deployment models
+  * Multi tenant
+  * App Service environments
+  * Azure stack (in on premises)
 ___
 
 
@@ -197,6 +202,7 @@ To create a vault to protect any data source, the vault must be in the same regi
 
 [architecture](https://docs.microsoft.com/en-us/azure/backup/backup-architecture)
 
+Windows server backup does not connect with Azure to store the backup of the file server.
 ____
 
 # Azure AD
@@ -444,6 +450,13 @@ ____
 # Logic App
 The Consumption resource type runs in the multi-tenant Azure Logic Apps or integration service environment, while the Standard resource type runs in single-tenant Azure Logic Apps environment
 
+* Virtual network integration
+  * Consumption Plan
+    * Require ISE
+  * Standard Plan
+    * Does not require ISE
+* ISE
+  * VNet is same subscription + same location  + same resource group
 ____
 
 # Azure Storage
@@ -451,6 +464,49 @@ ____
 * sku: name: redundency type Standard_LRS
 * sku: tier: blob container performance type
 * kind: storage account type (ex:    kind:Storage, BlobStorage, StorageV2 )
+
+* SAS
+  * Signin key
+    * Account Key
+    * User Delegation Key
+      * Every SAS is signed with a key. To create a user delegation SAS, you must first request a user delegation key, which is then used to sign the SAS. The user delegation key is analogous to the account key used to sign a service SAS or an account SAS, except that it relies on your Azure AD credentials. To request the user delegation key, call the Get User Delegation Key operation. You can then use the user delegation key to create the SAS.A user delegation SAS is supported for Azure Blob storage and Azure Data Lake Storage Gen2. Stored access policies are not supported for a user delegation SAS
+* Container policies
+  * Access Policy
+    * Shared access signatures (SAS) enable restricted access to entities within a storage account. A stored access policy provides additional control over service-level SAS on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy. You can use a stored access policy to change the start time, expiry time, or permissions for a signature, or to revoke it after it has been issued.
+  * Immutable policy
+    * Legal/Time based retention.
+    * A time-based retention policy is used for regulatory compliance to lock data from future edits. Once the policy is locked, it cannot be unlocked. A legal hold allows you to set an indefinite hold on all objects in the container. When a legal hold is set, the data in all the blobs of the container moves to a delete-protected and modify-protected state. Retention policy changes may require some time to take effect.
+  * Soft delete
+* Object replication
+  * Asynchronously copies block blobs
+  * Requires
+    * Change feed
+    * Blob version
+* Access tiers
+  * **Hot tier** - An online tier optimized for storing data that is accessed or modified frequently. The Hot tier has the highest storage costs, but the lowest access costs.
+  * **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the Cool tier should be stored for a minimum of 30 days. The Cool tier has lower storage costs and higher access costs compared to the Hot tier.
+  * **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the Archive tier should be stored for a minimum of 180 days.
+
+* Redundancy
+  * Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.
+  * 2 Premium file shares are supported on LRS and ZRS.
+  * [supported storage types](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json#supported-storage-account-types)
+  * [supported storage services](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json#supported-azure-storage-services)
+
+* Failover
+  * Account failover is available for general-purpose v1, general-purpose v2, and Blob storage account types with Azure Resource Manager deployments. Account failover is not supported for storage accounts with a hierarchical namespace enabled
+
+* Encryption
+  * server-side encryption (SSE) to automatically encrypt your data when it is persisted to the cloud.
+  * Manage with own keys
+    * Specify a customer-managed key to use for encrypting and decrypting data in Blob storage and in Azure Files.1,2 Customer-managed keys must be stored in Azure Key Vault or Azure Key Vault Managed Hardware Security Model (HSM) (preview).
+      * Blob and Azure Files only
+    * Specify a customer-provided key on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted
+      * Blob only.
+  * Double encryption
+    * Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key.
+  * Scopes
+    *  Enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 ___
 
@@ -731,6 +787,9 @@ ____
 # Azure Sentinel
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
+[playbook](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook)
+____
+
 # Identity Protection
 * Identity Protection is a tool that allows organizations to accomplish three key tasks:
   * Automate the detection and remediation of identity-based risks.
@@ -807,9 +866,34 @@ ____
     * This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine.
   * Cool down
     * The amount of time to wait after a scale operation before scaling again. For example, if cooldown is 10 minutes and a scale operation just occurred, Autoscale will not attempt to scale again until after 10 minutes. This is to allow the metrics to stabilize first.
-<<<<<<< HEAD
+
 
 ____
 
 # Windows Admin Center
 Is a locally deployed, browser-based app for managing Windows servers, clusters, hyper-converged infrastructure, as well as Windows 10 PCs. It is a free product and is ready to use in production
+
+___
+
+# Network monitor
+* Network Watcher
+  * Can view toplogy
+* Express Route Monitor
+* Azure Monitor
+* Network TAP (Terminal Access Point)
+
+___
+
+# Update Management 
+* In automation account
+* Consistent control and compliance of your VMs with Update Management
+
+___
+
+# Azure Function
+[hosting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale?WT.mc_id=Portal-WebsitesExtension)
+
+____
+
+# App service environments
+* App Service Environment is deployed into a single subnet in your VNet. The subnet needs to be empty and recommended size is /24 with 256 addresses
