@@ -45,14 +45,7 @@ Charged hourly. Partial hours for minutes. Storage is separate.
 * Azure IAAS need access to the encryption keys in your key vault to make them available to the VM for encrypting and decrypting the volumes.
 * Set-AzureRmVMDiskEncryptionExtension - Enables encryption on a running IaaS virtual machine in Azure.
 
-* Hyper-V VMs migration 
-  * Disk size
-    * 2TB for Gen-1, 300GB for Gen-2
-    * Data Disk VHD size: 4TB
-* VMWare
-  * Disk size
-    * up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks
-  
+
 * The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows or Linux virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory
 
 * Using managed disks, you can create up to 50,000 VM disks of a type in a subscription per region, allowing you to create thousands of VMs in a single subscription. This feature also further increases the scalability of virtual machine scale sets by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image.
@@ -238,6 +231,11 @@ Get device identity
   * Azure AD configured for self-service password reset.
   * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
   * To use password writeback, your Domain Controllers must be Windows Server 2016 or later.
+  * Password writeback is supported in environments that use the following hybrid identity models:
+   * Password hash synchronization
+   * Pass-through authentication
+   * Active Directory Federation Services
+   
 
 ____
 * Express Settings is used when you have a single-forest topology and password hash synchronization for authentication.
@@ -897,3 +895,7 @@ ____
 
 # App service environments
 * App Service Environment is deployed into a single subnet in your VNet. The subnet needs to be empty and recommended size is /24 with 256 addresses
+
+____
+# Az Command
+* [Difference of tempate savings](https://www.reddit.com/r/AZURE/comments/p5u4cj/exportazresourcegroup_vs/)
