@@ -510,6 +510,8 @@ ____
   * Scopes
     *  Enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
+>>>>>>> d89c230010b0e89783cafbbe2005bd6367bad407
+___
 
 # Auto scale example
 * Configuration
@@ -793,6 +795,7 @@ ____
 Invoke-ADSyncDiagnostics -PasswordSync # to trouble shoot AD (run this on AD Connect agent server).
 Stop-ADSyncSyncCycle # to stop synchronizaiton
 ```
+>>>>>>> d89c230010b0e89783cafbbe2005bd6367bad407
 ____
 
 # Azure Sentinel
@@ -929,4 +932,4 @@ ____
     * In this mode, all connections are proxied via the Azure SQL Database gateways, leading to increased latency and reduced throughput. For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
   * Default
     * This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either Proxy or Redirect. The default policy isn Redirect for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and Proxy for all client connections originating outside (for example, connections from your local workstation).
-
+>>>>>>> e39d3af61c7195d14b70297b86c1bb0b91200ec8
