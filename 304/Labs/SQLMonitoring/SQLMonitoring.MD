@@ -24,6 +24,12 @@ insert into task values(1,'Task1')
 insert into task values(2,'Task2')
 ```
 
+# Audit log
+* Created log analytics workspace lg-for-sql
+* Enabled Audit log for database from portal
+* Viewed the audit logs through portal
+![results](.\AuditLogResults.PNG)
+
 # Observations
 * vCore Provisioned cost is high (as in this case we will be using just for test purpose)
 * Changed to vCore ServerLess Cost came down (In reality serverless per unit is more compared to Provisioned one. see in the reference.)
