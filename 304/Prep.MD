@@ -35,6 +35,11 @@ ____
 [configure aad to internal application](https://thesleepyadmins.com/2019/02/09/configure-azure-application-proxy-access-internal-application/)
 [MFA to custom app](https://thesleepyadmins.com/2019/02/10/configure-mfa-for-azure-application-proxy/)
 
+[state parameter usage in asp.net for openid](https://blogs.aaddevsup.xyz/2019/11/state-parameter-in-mvc-application/)
+
+[Alert on User Login](https://4sysops.com/archives/how-to-create-an-azure-ad-admin-login-alert/)
+
+____
 
 # Azure Cost
 * People with Cost Management Contributor (or greater) access can create shared views. You can create up to 50 shared views per scope.
@@ -108,3 +113,63 @@ ____
 
 * To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the __contributor__ role, the __owner__ role, or an __administrator__ of the Azure subscription.
 * To create and manage child resources in the Azure portal, you must belong to the __Data Factory Contributor__ role at the Resource Group level or above.
+
+* Copy Activity
+  * [pre requsites](https://docs.microsoft.com/en-us/azure/data-factory/connector-file-system?tabs=data-factory#prerequisites)
+  * Supported file formats
+    * Avro, Binary, Delimited, Excel, Json,ORC, Parquet, XML
+
+
+
+____
+
+# Azure CosmoDB
+* Change feed in Azure Cosmos DB 
+  * is a persistent record of changes to a container in the order they occur.
+  * is only for insert and updates (and not deletes)
+  * use soft marker for getting deletes (and also to differentiate update from inserts)
+  * Function apps support triggers for CosmosDB, logic apps do not
+
+* Migration
+  * SON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections
+  * Table API - You can use the Data Migration tool or AzCopy to import data. For more information, see Import data for use with the Azure Cosmos DB Table API.
+  * dt.exe and dtui.exe
+____
+
+# Disks
+* High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the host RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
+
+* Disk Caching is not supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TiB will support caching.
+* Defaults
+  * OS disk	- ReadWrite
+  * Data disk	- ReadOnly
+* Recommendations for data disks
+  * None	- Configure host-cache as None for write-only and write-heavy disks.
+  * ReadOnly	- Configure host-cache as ReadOnly for read-only and read-write disks.
+  * ReadWrite	- Configure host-cache as ReadWrite only if your application properly handles writing cached data to persistent disks when needed.
+[disk caching]  (https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance#disk-caching)
+
+____
+
+# SQL Server VM
+* The SQL Assessment feature of the Azure portal identifies possible performance issues and evaluates that your SQL Server on Azure Virtual Machines (VMs) is configured to follow best practices using the
+[Performance recommendations](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist#vm-size)
+* Place data, log, and tempdb files on separate drives
+* Register with the SQL IaaS Agent Extension to unlock a number of feature benefits.
+
+____
+
+# Sql Database (managed)
+[pool overview](https://vincentlauzon.com/2016/12/18/azure-sql-elastic-pool-overview/)
+* the compute sits with the database and not the server.  The edition (i.e. Basic, Standard & Premium) & Pricing Tier / DTUs are set at the database level, not the server level.  Actually, the server doesn’t even have a cost associated to it
+
+* vCore-based purchasing model is available for both Azure SQL Database and Azure SQL Managed Instance. The Hyperscale service tier is available for single databases that are using the vCore-based purchasing model. (independent compute, storage, io )
+* DTU-based purchasing model is available for Azure SQL Database (compute, storage, i/o bundled)
+* **vCore-based**	This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use Azure Hybrid Benefit for SQL Server to **save costs**
+
+____
+
+# Azure Key Vault
+[throttling] (https://docs.microsoft.com/en-us/azure/key-vault/general/overview-throttling)
+
+
