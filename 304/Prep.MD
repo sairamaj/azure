@@ -108,3 +108,24 @@ ____
 
 * To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the __contributor__ role, the __owner__ role, or an __administrator__ of the Azure subscription.
 * To create and manage child resources in the Azure portal, you must belong to the __Data Factory Contributor__ role at the Resource Group level or above.
+
+# Big Data
+* Azure Synapse Analytics
+  * Big data analytics platform(PaaS)
+  * Multiple Components
+    * Spark
+    * Synapse SQL
+      * SQL Pools(dedicated - pay for provision performance)
+      * SQL on demand(ad-hoc - pay for TB processed)
+    * Synapse Pipelines(DataFactory - ETL)
+    * Studio (unified experience)
+
+* Azure HD Insight
+  * Flexible multi-purpose big data platform(PaaS)
+  * Multi technologies supported(Hadoop,Spark,Kafka,HBase, Hive,Storm,Machine Learning)
+
+* Azure DataBricks
+  * Big data collaboration platform(PaaS)
+  * Unified workspace for notebook,cluster,data,access management and collaboration
+  * Based on Spark
+  * Integrates very well with common Azure data services
