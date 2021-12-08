@@ -134,6 +134,11 @@ ____
   * SON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections
   * Table API - You can use the Data Migration tool or AzCopy to import data. For more information, see Import data for use with the Azure Cosmos DB Table API.
   * dt.exe and dtui.exe
+
+* Secure Access Data
+  * Primary/Secondary Key
+  * RBAC
+  * Resource Tokens
 ____
 
 # Disks
@@ -172,4 +177,69 @@ ____
 # Azure Key Vault
 [throttling] (https://docs.microsoft.com/en-us/azure/key-vault/general/overview-throttling)
 
+____
 
+# Azure API Management
+* Securing API acceses
+  * Subscription keys
+  * OAuth 2.0
+  * Client certificates
+  * Restricted caller IPs
+
+*  Set-AzApiManagementApiRevision cmdlet and set the Path argument to $null to make revision __offline__
+
+____
+
+# Azure Policy
+* Evaluation 
+  * A resource is created, updated, or deleted in a scope with a policy assignment.
+  * A policy or initiative is newly assigned to a scope.
+  * A policy or initiative already assigned to a scope is updated.
+  * During the standard compliance evaluation cycle, which occurs once every 24 hours.
+
+* Policy Effects
+  * Append
+  * Audit
+  * AuditIfNotExists
+  * Deny
+  * DeployIfNotExists
+  * Disabled
+  * Modify
+
+* Initiatives is collection of policy definitions
+* Resource manager modes
+  * __all__: evaluate resource groups, subscriptions, and all resource types
+  * __indexed__: only evaluate resource types that support tags and location
+
+* Ways to determine Resource properties during Policy definition
+  * Azure Policy extension for VS Code
+  * Azure Resource Manager templates (ARM templates)
+    * Export existing resource
+    * Creation experience
+    * Quickstart templates (GitHub)
+    * Template reference docs
+  * Azure Resource Explorer
+* Ways to find out aliases
+  * Azure Policy extension for VS Code
+  * Azure CLI
+  ```cmd
+  az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
+  * Azure PowerShell
+  ```powershell
+  (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
+  ```
+* When Azure Policy runs the template in the deployIfNotExists policy definition, it does so using a managed identity.
+____
+
+# Azure Blueprint
+* Blueprint
+  * Resource Groups
+  * ARM templates
+  * Policy assignments
+  * Role assignments
+
+____
+
+# External Identities
+* You can also use API connectors to integrate your self-service sign-up user flows with external cloud systems. You can connect with custom approval workflows, perform identity verification, validate user-provided information, and more.
