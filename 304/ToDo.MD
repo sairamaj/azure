@@ -18,8 +18,6 @@
 * [do lab for azure file shares](https://docs.microsoft.com/en-us/azure/storage/files/)
 https://docs.microsoft.com/en-us/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal#stream-into-sql-analytics
 
-https://docs.microsoft.com/en-us/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal
-
 * do user identity 
 
   https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure
@@ -52,3 +50,5 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 
 * move this to interview
   https://www.youtube.com/c/SimplilearnOfficial/videos
+
+* research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
