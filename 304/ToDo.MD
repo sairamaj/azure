@@ -52,3 +52,9 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
   https://www.youtube.com/c/SimplilearnOfficial/videos
 
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
+
+[traffic analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
+[sso](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso)
+[self service signup](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/self-service-sign-up-overview)
+[service connectivity monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)
+[storage keys overview](https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys)
