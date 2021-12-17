@@ -155,8 +155,27 @@ ____
   * Supported file formats
     * Avro, Binary, Delimited, Excel, Json,ORC, Parquet, XML
 
-
-
+* Parameterization
+  * Parameters
+  * Variables
+  * Expressions
+* Triggers
+  * Scheduled
+    * Interval
+    * Specific hours
+    * Specific week days
+    * Specific months days
+  * Tumbling window triggers
+    * Frequency
+    * Retry
+    * Retry policy
+    * Delay
+    * Max concurrency
+    * Dependencies
+  * Event based
+  * Manual
+* Mapping Data Flow
+  * way to transform data at scale without any coding required.
 ____
 
 # Azure CosmoDB
@@ -493,3 +512,12 @@ ____
   * On-premises applications
     * take advantage of what Azure AD offers, connect it with Azure AD using Azure __AD Application Proxy__. Application Proxy can be implemented when you want to publish on-premises applications externally. Remote users who need access to internal applications can then access them in a secure manner.
     * Application Proxy is a feature of Azure AD that enables users to access on-premises web applications from a remote client. Application Proxy includes both the Application Proxy service which runs in the cloud, and the Application Proxy connector which runs on an on-premises server. Azure AD, the Application Proxy service, and the Application Proxy connector work together to securely pass the user sign-on token from Azure AD to the web application
+
+_____
+
+# Hybrid environments
+* AD DS in Azure
+  * [ad ds architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain)
+  * If your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate Active Directory Domain Services (AD DS) in Azure. This can reduce the latency caused by sending authentication requests from the cloud back to AD DS running on-premises.
+
+  * This architecture is commonly used when the on-premises network and the Azure virtual network are connected by a VPN or ExpressRoute connection. This architecture also supports bidirectional replication, meaning changes can be made either on-premises or in the cloud, and both sources will be kept consistent. Typical uses for this architecture include hybrid applications in which functionality is distributed between on-premises and Azure, and applications and services that perform authentication using Active Directory.

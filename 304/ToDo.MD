@@ -87,5 +87,3 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 [Azure files security](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal)
 [sql sspackage](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-ver15)
 [integration runtimes](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#integration-runtime-types)
-[ad-ds to virtual network](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain)
-[Azure AD Health operations](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-operations)
