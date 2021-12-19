@@ -11,8 +11,21 @@
 [vm insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview)
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
+* In the most basic of scenarios where you don't need any threshold-based orchestration, you could directly call the automation script from Monitor and skip the Logic App step. [reference](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/cost-management-budget-scenario)
+
+* You can use the **Service Connectivity Monitor** capability in Network Performance Monitor to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases
+[service connectivity monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)
+
+* Trafic Analytics
+  * Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.
+  * [overview](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
+  
+
+_____
 
 # Cost Management
+
+_______
 
 # SQL Database
 
@@ -27,6 +40,12 @@ VM insights monitors the performance and health of your virtual machines and vir
 
 * Be sure that the event hub is in the same region as your database and server.
 * Auditing for storage account should be in the same region.
+
+[Serverless scenario](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-serverless-compute)
+[Provisioned computer scenario](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
+[Comparision of serverless and provisioned](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
+
+* Azure SQL Analytics is a cloud-only monitoring solution supporting streaming of diagnostics telemetry for all of your Azure SQL databases. Because Azure SQL Analytics does not use agents to connect to Azure Monitor, it does not support monitoring of SQL Server hosted on-premises or in virtual machines.
 ____
 
 
@@ -69,6 +88,18 @@ ____
 * Premium P2
   * Azure Active Directory Premium P2 includes every feature of all other Azure Active Directory editions enhanced with advanced identity protection and privileged identity management capabilities.
 
+* License
+  * [PIM License scenario](https://docs.microsoft.com/en-us/azure/automation/overview#common-scenarios)
+  * Elgible roles + Approvers + Reviewers.
+
+[Federated authentication for Web](https://www.youtube.com/watch?v=CjarTgjKcX8)
+
+* SSO
+  * Federation
+  * Password
+    * On-premises applications can use a password-based method for SSO. This choice works when applications are configured for Application Proxy.With password-based SSO, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD provides the username and password to the application
+  * Linked
+  
 ____
 
 # Azure Cost
@@ -132,6 +163,19 @@ ____
 
 * The storage account needs to be in the same region as the resource being monitored if the resource is regional."
 
+[log analytics cost](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#changing-pricing-tier)
+
+[log analytics for service provider](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/service-providers#architectures-for-service-providers)
+
+[Visulation options](https://docs.microsoft.com/en-us/azure/azure-monitor/best-practices-analysis#azure-dashboards)
+* Dashboard has RBAC and sharing feature
+* Dashboards enable you to visualize cloud and on-prem data
+* Dashboard can auto refresh.
+* Grafana open source to include multi cloud, on premises.
+* Workbooks does not have auto refresh
+
+[monitoring](https://cloud.netapp.com/blog/azure-monitoring-dashboard-3-options-and-their-pros-cons)
+
 ____
 
 # Azure Data Factory
@@ -176,6 +220,12 @@ ____
   * Manual
 * Mapping Data Flow
   * way to transform data at scale without any coding required.
+
+* Self Integrated Runtime does not support Data Flow but does Data movement.
+
+[sql sspackage](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-ver15)
+
+
 ____
 
 # Azure CosmoDB
@@ -208,6 +258,10 @@ ____
   * ReadOnly	- Configure host-cache as ReadOnly for read-only and read-write disks.
   * ReadWrite	- Configure host-cache as ReadWrite only if your application properly handles writing cached data to persistent disks when needed.
 [disk caching]  (https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance#disk-caching)
+
+[disk types](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#bursting)
+[premium disk bursting](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-bursting)
+[standard disk bursting](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd-bursting)
 
 ____
 
@@ -244,6 +298,14 @@ ____
 
 [backup](https://docs.microsoft.com/en-us/azure/key-vault/general/backup?tabs=azure-cli)
 * Restore the blob into a key vault within the same Azure subscription and Azure geography.
+
+[DR](https://docs.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance)
+
+* ARM template and KV
+  * the key vault can exist in a different subscription than the resource group you're deploying to
+  * The user who deploys the template must have the Microsoft.KeyVault/vaults/deploy/action permission for the scope of the resource group and key vault. By checking this access, Azure Resource Manager prevents an unapproved user from accessing the secret by passing in the resource ID for the key vault. You can grant deployment access to users without granting write access to the secrets
+  * reference the key vault in the parameter file, not the template for static
+  * parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID.
 ____
 
 # Azure API Management
@@ -386,6 +448,9 @@ ___
 [Immutable storage](https://docs.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview)
 * Time based
 * Legal based
+
+[Advanced threat stroage protection](https://azure.microsoft.com/en-us/updates/advanced-threat-protection-for-azure-storage-now-generally-available/)
+[Advaned threat storage protection availability](https://docs.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center#availability)
 ____
 
 # Azure Data Transfer
@@ -449,6 +514,17 @@ ____
 * [replication](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture#replication-process)
   * Site Recovery Mobility service extension installed
   * Extension registers with Site Recovery
+
+[Application and Crash consistencies](https://www.youtube.com/watch?v=VgJASTjIRgY)
+
+* On premises failover options
+  * Test failover
+  * Planned failver for Hyper-V
+  * Failover Hyper-V
+  * Failver VMWare
+
+* Site Recovery Deployment Planner is a command-line tool for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your VMware VMs by using this tool (with no production impact whatsoever) to understand the bandwidth and storage requirements for successful replication and test failover. You can run the tool without installing any Site Recovery components on-premises. To get accurate achieved throughput results, run the planner on a Windows Server that meets the minimum requirements of the Site Recovery configuration server that you eventually need to deploy as one of the first steps in production deployment.
+____
 
 ## SQL Database
 [dr](https://docs.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery)
@@ -521,3 +597,80 @@ _____
   * If your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate Active Directory Domain Services (AD DS) in Azure. This can reduce the latency caused by sending authentication requests from the cloud back to AD DS running on-premises.
 
   * This architecture is commonly used when the on-premises network and the Azure virtual network are connected by a VPN or ExpressRoute connection. This architecture also supports bidirectional replication, meaning changes can be made either on-premises or in the cloud, and both sources will be kept consistent. Typical uses for this architecture include hybrid applications in which functionality is distributed between on-premises and Azure, and applications and services that perform authentication using Active Directory.
+
+* Supported bandwidths for Express routes: 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
+
+[Local preferences](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#suboptimal-routing-from-customer-to-microsoft)
+
+[BGP communities from On premises to Azure](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-bgp-communities)
+[use AS PATH prepending from Azure](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)
+[vnet to vnet] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)
+
+
+____
+
+# Azure Files
+[overview](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+
+* SMB and NFS
+* SMB - windows, linux, mac
+* NFS - linux, mac
+* SMB - cached on windows server with Azure file sync
+
+[useful](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction#why-azure-files-is-useful)
+
+* Azure file shares leverages Kerberos protocol for authenticating with either on-premises AD DS or Azure AD DS. When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the domain service, either AD DS or Azure AD DS, to authenticate the identity. If authentication is successful, it returns a Kerberos token. The client sends a request that includes the Kerberos token and Azure file shares use that token to authorize the request. Azure file shares only receive the Kerberos token, not access credentials
+
+[Azure files security](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal)
+
+____
+
+# Azure Container Instances
+* Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service.
+
+* Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend Azure Kubernetes Service (AKS).
+
+* A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a pod in Kubernetes
+
+* Multi-container groups currently support only Linux containers. For Windows containers, Azure Container Instances only supports deployment of a single container instance. While we are working to bring all features to Windows containers
+
+* Storage
+  * Azure file share
+  * Secret
+  * Empty directory
+  * Cloned git repo
+
+____
+
+# Azure Automation
+
+* Process Automation
+* Configuration Management
+  * Change tracking and inventory
+  * Azure Automation State Configuration
+* Update Management
+
+[common scenarios](https://docs.microsoft.com/en-us/azure/automation/overview#common-scenarios)
+____
+
+# Azure Lighthouse
+* Enables multi-tenant management with scalability, higher automation, and enhanced governance across resources
+
+___
+
+# Backup
+* SQL VM
+  * Automated Backup automatically configures Managed Backup to Microsoft Azure for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure Blob storage. Automated Backup depends on the SQL Server infrastructure as a service (IaaS) Agent Extension
+
+____
+
+# General
+[ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
+* BI
+  * Collect
+    * SSIS
+        * Extract, Transform, Load
+  * Analyze
+  * View
+
+
