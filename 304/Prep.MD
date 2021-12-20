@@ -72,10 +72,19 @@ _______
 
 * Archiectural models
   * General Purpose/Standard
+    * Compute and Storage separated
+    * Uses Blob storage for database files
+    * 5-10ms latency 
   * Business Critial/Premimum
     * [info](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-business-critical)
-    * Low latency
+    * Compute and Storage integrated.
+    * Low latency (1 to 2 ms)
     * fast recovery
+    * designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations
+    * Built-in Read Scale-Out for free of charge for built-in read only
+    * Uses Always On Availability Group
+    * Offload reports
+  
   * HyperScale
     * Only avaialble for SQL database (not in managed instance)
 
@@ -93,6 +102,9 @@ Avoid using the App Service backup feature to back up your SQL databases because
 
 * VNet integration
   * [overview](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration)
+
+[files](https://github.com/projectkudu/kudu/wiki/Understanding-the-Azure-App-Service-file-system)
+[configuration](https://github.com/projectkudu/kudu/wiki/Configurable-settings#turning-on-the-dynamic-cache-feature)
 ____
 
 # Azure Active Directory
@@ -135,6 +147,10 @@ ____
     * On-premises applications can use a password-based method for SSO. This choice works when applications are configured for Application Proxy.With password-based SSO, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD provides the username and password to the application
   * Linked
   
+## ADDS
+[overview](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/auth-ldap)
+* Integrated with Azure AD
+* Managed service
 ____
 
 # Azure Cost
@@ -738,6 +754,12 @@ ____
 
 ____
 
+# AKS
+* Ingress controller
+  * [overview](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
+  * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
+  
+____
 # Azure Automation
 
 * Process Automation
