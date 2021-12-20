@@ -16,11 +16,22 @@ VM insights monitors the performance and health of your virtual machines and vir
 * You can use the **Service Connectivity Monitor** capability in Network Performance Monitor to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases
 [service connectivity monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)
 
+* Network Performance Monitor
+  * [overview](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor)
+  * Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute
+  * Three borad categories
+    * Performance Monitor
+    * Service Connectivity
+    * ExpressRoute Monitor
+
 * Trafic Analytics
   * Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.
   * [overview](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
-  
 
+* Service Map
+  * Log analytics agent
+  * Dependency agent
+  * Log analytics work space
 _____
 
 # Cost Management
@@ -46,6 +57,28 @@ _______
 [Comparision of serverless and provisioned](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
 
 * Azure SQL Analytics is a cloud-only monitoring solution supporting streaming of diagnostics telemetry for all of your Azure SQL databases. Because Azure SQL Analytics does not use agents to connect to Azure Monitor, it does not support monitoring of SQL Server hosted on-premises or in virtual machines.
+
+* Firewall rules
+ * [overview] (https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#server-level-versus-database-level-ip-firewall-rules)
+ * use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually
+ * Database-level IP firewall rules can only be configured through Transact-SQL.
+ * Connections from inside Azure
+   * Allow Azure Services and resources to access this server to ON in the Firewalls and virtual networks settings. Switching the setting to ON creates an inbound firewall rule for IP 0.0.0.0 - 0.0.0.0 named AllowAllWindowsAzureIps
+* Azure AD authentication
+  * [overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+  * Azure Active Directory with geo-replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users receive a Cannot connect to server error
+  * SQL Managed Instance supports Azure AD server principals (logins), using contained database users is not required. Azure AD server principals (logins) enable you to create logins from Azure AD users, groups, or applications
+  * Azure Active Directory authentication with SQL Database and Azure Synapse requires using contained database users based on an Azure AD identity
+
+* Archiectural models
+  * General Purpose/Standard
+  * Business Critial/Premimum
+    * [info](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-business-critical)
+    * Low latency
+    * fast recovery
+  * HyperScale
+    * Only avaialble for SQL database (not in managed instance)
+
 ____
 
 
@@ -58,6 +91,8 @@ Avoid using the App Service backup feature to back up your SQL databases because
 
 [Automatic Tuning](https://docs.microsoft.com/en-us/azure/azure-sql/database/automatic-tuning-overview)
 
+* VNet integration
+  * [overview](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration)
 ____
 
 # Azure Active Directory
@@ -244,6 +279,17 @@ ____
   * Primary/Secondary Key
   * RBAC
   * Resource Tokens
+
+* Backup
+  * Continuous backup mode
+  * Periodic backup mode
+    * Max retention period: 1month
+    * Min backup internval: 1hr
+* Managed Identity
+  * [overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-cosmos-db)
+  * Cosmos DB does not natively support Azure AD authentication
+  * System-assigned managed identity to retrieve a Cosmos DB access key from Resource Manager, and use the key to access Cosmos DB
+  * Kind of workaround.
 ____
 
 # Disks
@@ -293,6 +339,21 @@ ____
   * In Log analytics the retension is anywhere between 1-730(2years)
 ____
 
+# SQL Managed instance
+
+* Service Broker
+  * SQL Server Service Broker provide native support for messaging and queuing in the SQL Server Database Engine and Azure SQL Managed Instance. Developers can easily create sophisticated applications that use the Database Engine components to communicate between disparate databases, and build distributed and reliable applications.
+
+* Database Mail
+  * Database mail is available in SQL Server Database Engine and Azure SQL Managed Instance, but not in Azure SQL database Singleton and Elastic pools.
+  * Database Mail is an enterprise solution for sending e-mail messages from the SQL Server Database Engine or Azure SQL Managed Instance. Using Database Mail, your database applications can send e-mail messages to users. The messages can contain query results, and can also include files from any resource on your network.
+ 
+* Linked Servers
+  * Linked servers are available in SQL Server Database Engine and Azure SQL Managed Instance. They are not enabled in Azure SQL Database singleton and elastic pools. 
+  * Linked servers enable the SQL Server Database Engine and Azure SQL Managed Instance to read data from the remote data sources and execute commands against the remote database servers (for example, OLE DB data sources) outside of the instance of SQL Server. Typically linked servers are configured to enable the Database Engine to execute a Transact-SQL statement that includes tables in another instance of SQL Server, or another database product such as Oracle. Many types OLE DB data sources can be configured as linked servers, including third-party database providers and Azure CosmosDB.
+
+
+____
 # Azure Key Vault
 [throttling] (https://docs.microsoft.com/en-us/azure/key-vault/general/overview-throttling)
 
@@ -451,6 +512,38 @@ ___
 
 [Advanced threat stroage protection](https://azure.microsoft.com/en-us/updates/advanced-threat-protection-for-azure-storage-now-generally-available/)
 [Advaned threat storage protection availability](https://docs.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center#availability)
+
+* Public Access
+  * If storage is not allowed then no containers and no blobs
+  * If storgage is allowed 
+    * Container is not allowed then no container
+    * Container is allowed then both container and blob
+    * Blob is allowed then only blob but not container
+  * [access](https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure?tabs=portal#about-anonymous-public-read-access)
+
+* immutability policies
+  * [overview](https://docs.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-version-scope?tabs=azure-portal)
+  * WORM (Write Once Read More)
+  * data cannot be modified or deleted for a user-specified interval
+  * Applies to time-based retention policies and legal holds
+  * Either blob or on Container
+  * Blob Versioning must be enabled
+
+* SAS
+  * User delegation access
+    * Azure AD credentials.
+    * On blob only
+    * Recommended for security reasons
+  * Service SAS
+    * Account Key
+    * Only on one service Blob/Queue/Table/Azure Files
+  * Account SAS
+    * Account key.
+    * one or more services  
+* SAS forms
+  * ad hoc
+  * stored access policy
+    * only for service SAS
 ____
 
 # Azure Data Transfer
@@ -606,7 +699,9 @@ _____
 [use AS PATH prepending from Azure](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)
 [vnet to vnet] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)
 
-
+* Forced tunnelling for Site to Site
+  * [forced tunnel for vpn](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)
+  * Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. If you don't configure forced tunneling, Internet-bound traffic from your VMs in Azure always traverses from the Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches
 ____
 
 # Azure Files
@@ -617,6 +712,7 @@ ____
 * NFS - linux, mac
 * SMB - cached on windows server with Azure file sync
 
+* The SMB protocol requires TCP port **445** to be open
 [useful](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction#why-azure-files-is-useful)
 
 * Azure file shares leverages Kerberos protocol for authenticating with either on-premises AD DS or Azure AD DS. When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the domain service, either AD DS or Azure AD DS, to authenticate the identity. If authentication is successful, it returns a Kerberos token. The client sends a request that includes the Kerberos token and Azure file shares use that token to authorize the request. Azure file shares only receive the Kerberos token, not access credentials
@@ -662,6 +758,27 @@ ___
 * SQL VM
   * Automated Backup automatically configures Managed Backup to Microsoft Azure for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure Blob storage. Automated Backup depends on the SQL Server infrastructure as a service (IaaS) Agent Extension
 
+* Offline backup
+  * [overview](https://docs.microsoft.com/en-us/azure/backup/offline-backup-overview)
+  * Using Data Box 
+  * Using Azure Export/Import services
+___ 
+# Azure Firewall
+* Azure Firewall Premium provides advanced threat protection that meets the needs of highly sensitive and regulated environments, such as the payment and healthcare industries.
+
+____
+
+# Azure HPC
+* Batch
+* CycleCloud
+____
+
+# Azure DNS
+* Virtual networks DNS resolution methods
+  * [overview] (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution)
+  * DNS Private Zones
+  * Azure provided name resolution
+  * Own DNS server
 ____
 
 # General

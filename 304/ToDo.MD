@@ -53,3 +53,10 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
 
+[SQL DAtabase tiers](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-general-purpose)
+[APIM security](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/api-management-security-baseline)
+[app file system](https://github.com/projectkudu/kudu/wiki/Understanding-the-Azure-App-Service-file-system)
+[ldap auth in azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/auth-ldap)
+[dynamic thresholds](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds)
+[aks ingres](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
+[multi tenant](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
