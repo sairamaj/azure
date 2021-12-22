@@ -53,4 +53,3 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
 
-

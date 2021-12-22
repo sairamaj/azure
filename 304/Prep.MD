@@ -151,6 +151,10 @@ ____
 [overview](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/auth-ldap)
 * Integrated with Azure AD
 * Managed service
+
+[onetime bypass mfa](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-server-settings#one-time-bypass)
+
+[PIM alerts](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new)
 ____
 
 # Azure Cost
@@ -290,6 +294,10 @@ ____
   * SON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections
   * Table API - You can use the Data Migration tool or AzCopy to import data. For more information, see Import data for use with the Azure Cosmos DB Table API.
   * dt.exe and dtui.exe
+  * [cosmdb migration tool](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)
+  * Azure **Database Migration Service** to perform an offline (one-time) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB. 
+  * The Data Migration tool doesn't support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to How to migrate MongoDB data to a Cosmos database with Azure Cosmos DB's API for MongoDB for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
+  * Not supported for Casandra ([for casandra](https://docs.microsoft.com/en-us/azure/cosmos-db/cosmosdb-migrationchoices#azure-cosmos-db-cassandra-api)), Gremlin APIs [gremlin](https://docs.microsoft.com/en-us/azure/cosmos-db/cosmosdb-migrationchoices#other-apis).
 
 * Secure Access Data
   * Primary/Secondary Key
@@ -560,6 +568,8 @@ ___
   * ad hoc
   * stored access policy
     * only for service SAS
+
+* Azure Files and Blob storage -> customer managed keys
 ____
 
 # Azure Data Transfer
@@ -758,7 +768,7 @@ ____
 * Ingress controller
   * [overview](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
   * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
-  
+
 ____
 # Azure Automation
 
@@ -803,6 +813,12 @@ ____
   * Own DNS server
 ____
 
+# On premises Gateway
+[overview](https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem)
+[how it works](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install#how-the-gateway-works)
+
+____
+
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
 * BI
@@ -812,4 +828,7 @@ ____
   * Analyze
   * View
 
+____
 
+# Practice samples
+[edusum](https://www.edusum.com/microsoft/microsoft-azure-architect-design-az-304-certification-sample-questions)
