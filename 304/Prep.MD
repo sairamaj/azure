@@ -361,6 +361,10 @@ ____
 * Diagnostics
   * In portal when retension policy specified for SQL database diganostics it is applicable to storage
   * In Log analytics the retension is anywhere between 1-730(2years)
+
+[Tier-DTU based](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+[Premium pool limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+
 ____
 
 # SQL Managed instance
@@ -832,3 +836,4 @@ ____
 
 # Practice samples
 [edusum](https://www.edusum.com/microsoft/microsoft-azure-architect-design-az-304-certification-sample-questions)
+
