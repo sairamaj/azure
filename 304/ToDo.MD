@@ -54,19 +54,3 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
 
 - storage long term expiry
-- https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-choose-me
-- https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending
-- https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/multi-region
-- https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool
-- https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor
-- https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure
-- https://docs.microsoft.com/en-us/azure/azure-relay/relay-what-is-it
-- https://docs.microsoft.com/en-us/azure/virtual-machines/sizes
-- https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-sspr-deployment
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-licensing
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback

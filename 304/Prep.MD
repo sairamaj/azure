@@ -35,7 +35,16 @@ VM insights monitors the performance and health of your virtual machines and vir
 _____
 
 # Cost Management
-
+* Alerts
+  * Budget Alerts
+    * notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget
+  * Credit Alerts
+    * notify you when your Azure Prepayment (previously called monetary commitment) is consumed
+    * Azure Prepayment is for organizations with Enterprise Agreements
+  * Department spending quota alerts
+    * notify you when department spending reaches a fixed threshold of the quota. 
+    * Spending quotas are configured in the EA portal
+* [supported](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#supported-alert-features-by-offer-categories)
 _______
 
 # SQL Database
@@ -115,6 +124,12 @@ ____
 # Resources
 [304 certification](https://charbelnemnom.com/passed-az-304-exam-microsoft-azure-architect-design/)
 
+* Password write back
+  * Supported in all 3 environments (hash sync, pass through and federation)
+  * [supported](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback#supported-writeback-operations)
+  * [un supported](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback#unsupported-writeback-operations)
+
+
 * Management groups can't span AAD tenant
 
 [configure aad to internal application](https://thesleepyadmins.com/2019/02/09/configure-azure-application-proxy-access-internal-application/)
@@ -155,6 +170,20 @@ ____
 [onetime bypass mfa](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-server-settings#one-time-bypass)
 
 [PIM alerts](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new)
+
+* Password Protection for On premises Azure AD Active directory
+  * [overview](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)
+
+* AD Monitoring
+  * Audit
+  * Signin
+  * Provisioning
+
+  * Azure AD premium license to access the Azure AD **sign in logs**
+  * The sign-in activity report is available in all editions of Azure AD. If you have an Azure Active Directory P1 or P2 license, you also can access the sign-in activity report through the Microsoft Graph API
+  * **audit activity report** is available in all editions of Azure AD
+  * deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant
+[flagged signins](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-flagged-sign-ins)
 ____
 
 # Azure Cost
@@ -821,6 +850,42 @@ ____
 [overview](https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-onprem)
 [how it works](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install#how-the-gateway-works)
 
+____
+
+# Virtual Machines
+[Series](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/)
+
+| Series | Type | Description |
+|--------|------|-------------|
+| A      | Entry| development and test servers, low traffic web servers, small to medium databases, servers for proof-of-concepts, and code repositories            |
+| B      | Burst| development and test servers, low-traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers 
+| D      | General| many enterprise-grade applications, e-commerce systems, web front ends, desktop virtualization solutions, customer relationship management applications, entry-level and mid-range databases, application servers|
+| E      | Optimized for in-memory hyper-threaded applications| SAP HANA (e.g|pplication layer, SAP NetWeaver application layer, and more broadly memory-intensive enterprise applications, large relational database servers, data warehousing workloads, business intelligence applications, in-memory analytics workloads, and additional business-critical applications, including systems that process financial transactions of various nature|
+| F      |Compute optimized virtual machines| batch processing, web servers, analytics, and gaming
+| G      |Memory and storage optimized virtual machines|large SQL and NoSQL databases, ERP, SAP, and data warehousing solutions|
+| H      |High Performance Computing|fluid dynamics, finite element analysis, seismic processing, reservoir simulation, risk analysis, electronic design automation, rendering, Spark, weather modeling, quantum simulation, computational chemistry, heat transfer simulation.|
+| L      |Storage optimized| NoSQL databases such as Cassandra, MongoDB, Cloudera, and Redis. Data warehousing applications and large transactional databases are great use cases as well
+| M      |Memory Optimized|SAP HANA, SAP S/4 HANA, SQL Hekaton and other large in-memory business critical workloads requiring massive parallel compute power
+| Mv2    |Largest memory optimized|SAP HANA, SAP S/4 HANA, SQL Hekaton and other large in-memory business critical workloads requiring massive parallel compute power
+| N      |GPU enabled|simulation, deep learning, graphics rendering, video editing, gaming and remote visualization|
+
+____
+
+# Azure Relay
+
+* [overview](https://docs.microsoft.com/en-us/azure/azure-relay/relay-what-is-it)
+* Traditional one-way, request/response, and peer-to-peer communication
+* Event distribution at internet-scope to enable publish/subscribe scenarios
+* Bi-directional and unbuffered socket communication across network boundaries
+
+____
+
+# Web apps
+* High availability
+  * [overview](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+  * Active/Passive(Hot standby)
+  * Active/Passive(Cold standy)
+  * Active/Active
 ____
 
 # General
