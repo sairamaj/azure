@@ -54,3 +54,44 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
 
 - storage long term expiry
+
+PIM audit and security logs
+
+- SQL and Cosmodb authentication and authorization.
+
+- Azure dev test lab?
+
+- management group-> ad -> blueprint definition
+
+- cosmodb -> authentication
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/h-series
+
+Microsoft System Center Data Protection Manager (DPM)
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability
+
+https://docs.microsoft.com/en-us/azure/backup/
+
+- look for database daily and monthly backup tiers.
+https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu
+
+https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime
+
+Minimize cost: GRS or RGRS?
+
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid?tabs=csharp
+
+https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview
+
+waf urlbased multi site
+
+https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-wcag-2-1?view=o365-worldwide
+
+app service integration
+https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration
+https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
+https://docs.microsoft.com/en-us/azure/aks/concepts-network?toc=/azure/virtual-network/toc.json
+
+
+https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log

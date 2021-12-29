@@ -32,6 +32,9 @@ VM insights monitors the performance and health of your virtual machines and vir
   * Log analytics agent
   * Dependency agent
   * Log analytics work space
+
+[Terminology](https://docs.microsoft.com/en-us/azure/azure-monitor/terminology)
+
 _____
 
 # Cost Management
@@ -332,6 +335,7 @@ ____
   * Primary/Secondary Key
   * RBAC
   * Resource Tokens
+  * [info](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#resource-tokens)
 
 * Backup
   * Continuous backup mode
@@ -369,6 +373,8 @@ ____
 [Performance recommendations](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist#vm-size)
 * Place data, log, and tempdb files on separate drives
 * Register with the SQL IaaS Agent Extension to unlock a number of feature benefits.
+
+* [server server vm only options](https://docs.microsoft.com/en-us/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview#sql-server-vm-alternative)
 
 ____
 
@@ -716,7 +722,7 @@ ____
 * When communicating across virtual networks or connecting on-premises, this feature has minimal impact to overall latency
 * Policies are enforced at host (without accelerated policies are enforced at Virtual switch)
 * A supported VM size without accelerated networking enabled can only have the feature enabled when it's stopped and deallocated.
-
+* Accelerated Networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance.
 ____
 
 # Migraiton
@@ -728,6 +734,42 @@ ____
   * Discover new features in the target SQL Server platform that the database can benefit from after an upgrade
   * Migrate an on-premises SQL Server instance to a modern SQL Server instance hosted on-premises or on an Azure virtual machine (VM) that is accessible from your on-premises network
   * Assess on-premises SQL Server Integration Services (SSIS) package(s) migrating to Azure SQL Database or Azure SQL Managed Instance
+
+* SQL Server to SQL database 
+  [overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-2-use-transactional-replication)
+  * With downtime
+    * [info](https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-1-migration-with-downtime-during-the-migration)
+    * Steps
+      * Asses using DMA
+      * Prepare fixes in SQL scripts
+      * Make copy
+      * Apply SQL fixes
+      * Migrate using DMA (or BACPAC)
+  * Without downtime
+    * [info] (https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-2-use-transactional-replication)
+    * Steps
+      * Set up Distribution
+      * Create Publication
+      * Create Subscription
+
+* SQL server to Managed instances
+  * Migration tools
+    * SQL extension in Data Studio
+    * Azure Migrate
+    * Azure Database Migration service
+    * Native backup and restore
+    * Log reply service
+    * Transactional replication
+    * Bulk copy
+    * Import/Export /BACPAC
+    * Azure data factory
+  * Migrate SQL Server Integration Services (SSIS) packages and projects in SSISDB to Azure SQL Managed Instance by using Azure Database Migration Service
+  * You can migrate SQL Server Reporting Services (SSRS) reports to paginated reports in Power BI. Use the RDL Migration Tool to help prepare and migrate your reports.
+  * Use the offline Azure Database Migration Service option to migrate SQL Agent jobs. Otherwise, script the jobs in Transact-SQL (T-SQL) by using SQL Server Management Studio and then manually re-create them on the target SQL managed instance.
+  * Move SQL logins from the SQL Server source to Azure SQL Managed Instance by using Database Migration Service in offline mode
+  * In-Memory OLTP is supported only in the Business Critical tier in Azure SQL Managed Instance. It's not supported in the General Purpose tier
+
+
 
   ____
 
