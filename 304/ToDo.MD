@@ -94,4 +94,3 @@ https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
 https://docs.microsoft.com/en-us/azure/aks/concepts-network?toc=/azure/virtual-network/toc.json
 
 
-https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log

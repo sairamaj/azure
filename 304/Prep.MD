@@ -843,6 +843,7 @@ ____
 * Ingress controller
   * [overview](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
   * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
+[different options for load balance](https://medium.com/microsoftazure/aks-different-load-balancing-options-for-a-single-cluster-when-to-use-what-abd2c22c2825)
 
 ____
 # Azure Automation
@@ -854,6 +855,13 @@ ____
 * Update Management
 
 [common scenarios](https://docs.microsoft.com/en-us/azure/automation/overview#common-scenarios)
+
+* Automation State Configuration
+  * [overview](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview)
+  * Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter
+
+
+
 ____
 
 # Azure Lighthouse
@@ -930,6 +938,41 @@ ____
   * Active/Active
 ____
 
+# DataBricks
+[data analytics platform](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
+
+* Environments
+  * DataBricks SQL
+  * Databricks Data Science & Engineering
+  * Databricks Machine Learning
+
+_____
+# Import/Export
+* Azure Import/Export service is used to securely import large amounts of data to **Azure Blob storage** and **Azure Files** by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files
+[overview](https://docs.microsoft.com/en-us/azure/import-export/storage-import-export-service)
+
+* Components
+  * Import/Export service
+  * WAImportExport tool
+  * Disk Drives
+
+____
+# Big data
+
+* HD Insight
+  * Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more, in your Azure environment.
+  * [overview](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview)
+
+___
+
+# NSG Logging
+* Resource logging(diagnostics)
+  * Event: Entries are logged for which NSG rules are applied to VMs, based on MAC address.
+  * Rule counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 300 seconds
+  * Usual diagnostic sources like : storage, log analytics, Hub and external parties.
+* Network security group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.
+  * [common usecases](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#common-use-cases)
+____
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
 * BI
@@ -944,3 +987,4 @@ ____
 # Practice samples
 [edusum](https://www.edusum.com/microsoft/microsoft-azure-architect-design-az-304-certification-sample-questions)
 
+[quizlet](https://quizlet.com/411485316/az-500-exam-dumps-az-500-braindumps-az-500-vce-az-500-pdf-exam-questions-from-wwwpassleadercom-flash-cards/)
