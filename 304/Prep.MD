@@ -400,6 +400,9 @@ ____
 [Tier-DTU based](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
 [Premium pool limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
 
+[limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases)
+[Hyper scale](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale)
+
 ____
 
 # SQL Managed instance
@@ -443,6 +446,7 @@ ____
 
 [virtual network](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet?tabs=stv2)
 
+[limits](https://docs.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling)
 ____
 
 # Azure Policy
@@ -803,6 +807,8 @@ _____
 * Forced tunnelling for Site to Site
   * [forced tunnel for vpn](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)
   * Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. If you don't configure forced tunneling, Internet-bound traffic from your VMs in Azure always traverses from the Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches
+
+* [Express route connectivity models](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-connectivity-models)
 ____
 
 # Azure Files
@@ -962,6 +968,17 @@ ____
 * HD Insight
   * Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more, in your Azure environment.
   * [overview](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview)
+
+____
+# IOT
+
+* The Internet of Things (IoT) is typically defined as a network of physical devices that connect to and exchange data with other devices and services over the Internet or other communication network
+* [overview](https://docs.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub)
+* Integration
+  * Event Grid
+  * Logic app
+  * Machine Learning
+  * Stream Analytics
 
 ___
 
