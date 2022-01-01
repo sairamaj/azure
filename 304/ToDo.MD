@@ -94,3 +94,13 @@ https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
 https://docs.microsoft.com/en-us/azure/aks/concepts-network?toc=/azure/virtual-network/toc.json
 
 
+https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios
+https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs
+https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server?view=sql-server-ver15
+
+https://docs.microsoft.com/en-us/azure/aks/concepts-scale 
+https://docs.microsoft.com/en-us/azure/aks/scale-cluster
+
+https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction
+
+https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-vmm-azure-tutorial
