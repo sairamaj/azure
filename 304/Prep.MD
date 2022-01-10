@@ -361,6 +361,10 @@ ____
 * Diagnostics
   * In portal when retension policy specified for SQL database diganostics it is applicable to storage
   * In Log analytics the retension is anywhere between 1-730(2years)
+
+* [DTU Tiers](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+* [Storage limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+
 ____
 
 # SQL Managed instance
@@ -769,6 +773,13 @@ ____
   * [overview](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
   * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
 
+* Networking
+  * Kubenet networking
+  * Azure CNI
+    * Every pod gets an IP address from the subnet and can be accessed directly
+* Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to leverage Azure's native Application Gateway L7 load-balancer to expose cloud software to the Internet. AGIC monitors the Kubernetes cluster it is hosted on and continuously updates an Application Gateway, so that selected services are exposed to the Internet.
+  * [overview](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-overview)    
+  
 ____
 # Azure Automation
 
