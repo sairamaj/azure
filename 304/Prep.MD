@@ -441,6 +441,12 @@ ____
   * The user who deploys the template must have the Microsoft.KeyVault/vaults/deploy/action permission for the scope of the resource group and key vault. By checking this access, Azure Resource Manager prevents an unapproved user from accessing the secret by passing in the resource ID for the key vault. You can grant deployment access to users without granting write access to the secrets
   * reference the key vault in the parameter file, not the template for static
   * parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID.
+
+* Azure Key Vault does not allow you to move a key vault from one region to another. You can, however, create a key vault in the new region, manually copy each individual key, secret, or certificate from your existing key vault to the new key vault, and then remove the original key vault.
+  * [info](https://docs.microsoft.com/en-us/azure/key-vault/general/move-region
+
+* [Auto rotation](https://docs.microsoft.com/en-us/azure/key-vault/certificates/tutorial-rotate-certificates)
+
 ____
 
 # Azure API Management
@@ -536,6 +542,8 @@ ____
 # SQL Temporal tables
 [overview](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables?view=sql-server-ver15)
 * A system-versioned temporal table is a type of user table designed to keep a full history of data changes to allow easy point in time analysis
+
+[capacity](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)
 
 ____
 
@@ -1037,7 +1045,24 @@ ___
 # SLAs
 [vm slas](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/)
 
+___
+
+# Azure Backup
+* Data Protection Manager
+  * [dpm](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview?view=sc-dpm-2019)
+  * Application-aware backup
+  * File backup
+  * System backup ( bare-metal backups of physcial computers)
+  * Hyper-V backup
+  * Can backup to 
+    * Disk
+    * Azure
+    * Tape
+* Microsoft Azure Recovery Services (MARS) agent
+  * [mars](https://docs.microsoft.com/en-us/azure/backup/backup-azure-about-mars)
+  * agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure.
 ____
+
 
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
