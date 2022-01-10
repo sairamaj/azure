@@ -65,42 +65,23 @@ PIM audit and security logs
 
 - cosmodb -> authentication
 
-https://docs.microsoft.com/en-us/azure/virtual-machines/h-series
-
 Microsoft System Center Data Protection Manager (DPM)
 
 https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability
 
 https://docs.microsoft.com/en-us/azure/backup/
 
-- look for database daily and monthly backup tiers.
-https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu
-
-https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime
-
-Minimize cost: GRS or RGRS?
-
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid?tabs=csharp
-
-https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview
 
 waf urlbased multi site
 
-https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-wcag-2-1?view=o365-worldwide
 
-app service integration
-https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration
-https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet
-https://docs.microsoft.com/en-us/azure/aks/concepts-network?toc=/azure/virtual-network/toc.json
+Site recovery
 
 
-https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios
-https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs
-https://docs.microsoft.com/en-us/sql/database-engine/log-shipping/fail-over-to-a-log-shipping-secondary-sql-server?view=sql-server-ver15
 
-https://docs.microsoft.com/en-us/azure/aks/concepts-scale 
-https://docs.microsoft.com/en-us/azure/aks/scale-cluster
+[refer this for some conflicts]
+https://www.whizlabs.com/learn/course/microsoft-azure-certification-az-304/324/quiz/19331/report/5822889
 
-https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction
+https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities
 
-https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-vmm-azure-tutorial
+https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#server-level-versus-database-level-ip-firewall-rules

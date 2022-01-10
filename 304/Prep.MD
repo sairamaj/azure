@@ -117,6 +117,10 @@ Avoid using the App Service backup feature to back up your SQL databases because
 
 [files](https://github.com/projectkudu/kudu/wiki/Understanding-the-Azure-App-Service-file-system)
 [configuration](https://github.com/projectkudu/kudu/wiki/Configurable-settings#turning-on-the-dynamic-cache-feature)
+
+* VNet
+  * [vnet integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration)
+  * virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is only for making outbound calls from your app into your virtual network.
 ____
 
 # Azure Active Directory
@@ -403,6 +407,8 @@ ____
 [limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases)
 [Hyper scale](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale)
 
+[service-tier-dtu](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu)
+
 ____
 
 # SQL Managed instance
@@ -513,7 +519,7 @@ ___
 * Cluster -> * (nodes)
 * Node
   * VM (FabricHost.exe, Fabric.exe , FabricGateway)
-
+[overivew](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview)
 ____
 
 # Stretch Database
@@ -851,6 +857,10 @@ ____
   * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
 [different options for load balance](https://medium.com/microsoftazure/aks-different-load-balancing-options-for-a-single-cluster-when-to-use-what-abd2c22c2825)
 
+[scaling](https://docs.microsoft.com/en-us/azure/aks/concepts-scale)
+* Horizontal POD auto scaler
+* Cluster Auto scale
+* Burst to Azure container instance
 ____
 # Azure Automation
 
@@ -989,7 +999,37 @@ ___
   * Usual diagnostic sources like : storage, log analytics, Hub and external parties.
 * Network security group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.
   * [common usecases](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#common-use-cases)
+
 ____
+# Stream Analytics
+[overview](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
+* Azure Stream Analytics can run in the cloud, for large-scale analytics, or run on IoT Edge or Azure Stack for ultra-low latency analytics. Azure Stream Analytics uses the same tools and query language on both cloud and the edge, enabling developers to build truly hybrid architectures for stream processing
+* Stream Analytics doesn't store the incoming data since all processing is done in-memory. 
+* Stream Analytics aso supports Azure Virtual Networks (VNET) when running a job in a Stream Analytics Cluster.
+
+___
+
+# DataLake
+[data scenarios](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios)
+
+____
+# Auto Scale
+[overview](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices)
+
+* Applies only to 
+  * Virtual Machine Scale Sets
+  * Cloud Services
+  * App Service
+  * Web Apps
+  * API Management services.
+* On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met
+
+___ 
+# SLAs
+[vm slas](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/)
+
+____
+
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
 * BI
@@ -1005,3 +1045,8 @@ ____
 [edusum](https://www.edusum.com/microsoft/microsoft-azure-architect-design-az-304-certification-sample-questions)
 
 [quizlet](https://quizlet.com/411485316/az-500-exam-dumps-az-500-braindumps-az-500-vce-az-500-pdf-exam-questions-from-wwwpassleadercom-flash-cards/)
+
+___
+
+# Resources
+[Azure Network](https://www.slideshare.net/kvaes/a-deepdive-into-azure-networking)
