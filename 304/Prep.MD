@@ -32,10 +32,22 @@ VM insights monitors the performance and health of your virtual machines and vir
   * Log analytics agent
   * Dependency agent
   * Log analytics work space
+
+[Terminology](https://docs.microsoft.com/en-us/azure/azure-monitor/terminology)
+
 _____
 
 # Cost Management
-
+* Alerts
+  * Budget Alerts
+    * notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget
+  * Credit Alerts
+    * notify you when your Azure Prepayment (previously called monetary commitment) is consumed
+    * Azure Prepayment is for organizations with Enterprise Agreements
+  * Department spending quota alerts
+    * notify you when department spending reaches a fixed threshold of the quota. 
+    * Spending quotas are configured in the EA portal
+* [supported](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending#supported-alert-features-by-offer-categories)
 _______
 
 # SQL Database
@@ -105,6 +117,10 @@ Avoid using the App Service backup feature to back up your SQL databases because
 
 [files](https://github.com/projectkudu/kudu/wiki/Understanding-the-Azure-App-Service-file-system)
 [configuration](https://github.com/projectkudu/kudu/wiki/Configurable-settings#turning-on-the-dynamic-cache-feature)
+
+* VNet
+  * [vnet integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration)
+  * virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is only for making outbound calls from your app into your virtual network.
 ____
 
 # Azure Active Directory
@@ -114,6 +130,12 @@ ____
 * [Recommendations](https://docs.microsoft.com/en-us/learn/modules/allow-users-reset-their-password/2-self-service-password-reset)
 # Resources
 [304 certification](https://charbelnemnom.com/passed-az-304-exam-microsoft-azure-architect-design/)
+
+* Password write back
+  * Supported in all 3 environments (hash sync, pass through and federation)
+  * [supported](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback#supported-writeback-operations)
+  * [un supported](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback#unsupported-writeback-operations)
+
 
 * Management groups can't span AAD tenant
 
@@ -155,6 +177,20 @@ ____
 [onetime bypass mfa](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-server-settings#one-time-bypass)
 
 [PIM alerts](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts?tabs=new)
+
+* Password Protection for On premises Azure AD Active directory
+  * [overview](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)
+
+* AD Monitoring
+  * Audit
+  * Signin
+  * Provisioning
+
+  * Azure AD premium license to access the Azure AD **sign in logs**
+  * The sign-in activity report is available in all editions of Azure AD. If you have an Azure Active Directory P1 or P2 license, you also can access the sign-in activity report through the Microsoft Graph API
+  * **audit activity report** is available in all editions of Azure AD
+  * deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant
+[flagged signins](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-flagged-sign-ins)
 ____
 
 # Azure Cost
@@ -303,6 +339,7 @@ ____
   * Primary/Secondary Key
   * RBAC
   * Resource Tokens
+  * [info](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#resource-tokens)
 
 * Backup
   * Continuous backup mode
@@ -341,6 +378,8 @@ ____
 * Place data, log, and tempdb files on separate drives
 * Register with the SQL IaaS Agent Extension to unlock a number of feature benefits.
 
+* [server server vm only options](https://docs.microsoft.com/en-us/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview#sql-server-vm-alternative)
+
 ____
 
 # Sql Database (managed)
@@ -364,6 +403,13 @@ ____
 
 * [DTU Tiers](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
 * [Storage limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+[Tier-DTU based](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+[Premium pool limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers)
+
+[limits](https://docs.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases)
+[Hyper scale](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale)
+
+[service-tier-dtu](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu)
 
 ____
 
@@ -408,6 +454,7 @@ ____
 
 [virtual network](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet?tabs=stv2)
 
+[limits](https://docs.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling)
 ____
 
 # Azure Policy
@@ -474,7 +521,7 @@ ___
 * Cluster -> * (nodes)
 * Node
   * VM (FabricHost.exe, Fabric.exe , FabricGateway)
-
+[overivew](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview)
 ____
 
 # Stretch Database
@@ -687,7 +734,7 @@ ____
 * When communicating across virtual networks or connecting on-premises, this feature has minimal impact to overall latency
 * Policies are enforced at host (without accelerated policies are enforced at Virtual switch)
 * A supported VM size without accelerated networking enabled can only have the feature enabled when it's stopped and deallocated.
-
+* Accelerated Networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance.
 ____
 
 # Migraiton
@@ -699,6 +746,42 @@ ____
   * Discover new features in the target SQL Server platform that the database can benefit from after an upgrade
   * Migrate an on-premises SQL Server instance to a modern SQL Server instance hosted on-premises or on an Azure virtual machine (VM) that is accessible from your on-premises network
   * Assess on-premises SQL Server Integration Services (SSIS) package(s) migrating to Azure SQL Database or Azure SQL Managed Instance
+
+* SQL Server to SQL database 
+  [overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-2-use-transactional-replication)
+  * With downtime
+    * [info](https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-1-migration-with-downtime-during-the-migration)
+    * Steps
+      * Asses using DMA
+      * Prepare fixes in SQL scripts
+      * Make copy
+      * Apply SQL fixes
+      * Migrate using DMA (or BACPAC)
+  * Without downtime
+    * [info] (https://docs.microsoft.com/en-us/azure/azure-sql/database/migrate-to-database-from-sql-server#method-2-use-transactional-replication)
+    * Steps
+      * Set up Distribution
+      * Create Publication
+      * Create Subscription
+
+* SQL server to Managed instances
+  * Migration tools
+    * SQL extension in Data Studio
+    * Azure Migrate
+    * Azure Database Migration service
+    * Native backup and restore
+    * Log reply service
+    * Transactional replication
+    * Bulk copy
+    * Import/Export /BACPAC
+    * Azure data factory
+  * Migrate SQL Server Integration Services (SSIS) packages and projects in SSISDB to Azure SQL Managed Instance by using Azure Database Migration Service
+  * You can migrate SQL Server Reporting Services (SSRS) reports to paginated reports in Power BI. Use the RDL Migration Tool to help prepare and migrate your reports.
+  * Use the offline Azure Database Migration Service option to migrate SQL Agent jobs. Otherwise, script the jobs in Transact-SQL (T-SQL) by using SQL Server Management Studio and then manually re-create them on the target SQL managed instance.
+  * Move SQL logins from the SQL Server source to Azure SQL Managed Instance by using Database Migration Service in offline mode
+  * In-Memory OLTP is supported only in the Business Critical tier in Azure SQL Managed Instance. It's not supported in the General Purpose tier
+
+
 
   ____
 
@@ -732,6 +815,8 @@ _____
 * Forced tunnelling for Site to Site
   * [forced tunnel for vpn](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm)
   * Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. If you don't configure forced tunneling, Internet-bound traffic from your VMs in Azure always traverses from the Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches
+
+* [Express route connectivity models](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-connectivity-models)
 ____
 
 # Azure Files
@@ -772,6 +857,7 @@ ____
 * Ingress controller
   * [overview](https://docs.microsoft.com/en-us/azure/aks/ingress-basic)
   * An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster
+[different options for load balance](https://medium.com/microsoftazure/aks-different-load-balancing-options-for-a-single-cluster-when-to-use-what-abd2c22c2825)
 
 * Networking
   * Kubenet networking
@@ -780,6 +866,10 @@ ____
 * Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to leverage Azure's native Application Gateway L7 load-balancer to expose cloud software to the Internet. AGIC monitors the Kubernetes cluster it is hosted on and continuously updates an Application Gateway, so that selected services are exposed to the Internet.
   * [overview](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-overview)    
   
+[scaling](https://docs.microsoft.com/en-us/azure/aks/concepts-scale)
+* Horizontal POD auto scaler
+* Cluster Auto scale
+* Burst to Azure container instance
 ____
 # Azure Automation
 
@@ -790,6 +880,13 @@ ____
 * Update Management
 
 [common scenarios](https://docs.microsoft.com/en-us/azure/automation/overview#common-scenarios)
+
+* Automation State Configuration
+  * [overview](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview)
+  * Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter
+
+
+
 ____
 
 # Azure Lighthouse
@@ -830,6 +927,118 @@ ____
 
 ____
 
+# Virtual Machines
+[Series](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/)
+
+| Series | Type | Description |
+|--------|------|-------------|
+| A      | Entry| development and test servers, low traffic web servers, small to medium databases, servers for proof-of-concepts, and code repositories            |
+| B      | Burst| development and test servers, low-traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers 
+| D      | General| many enterprise-grade applications, e-commerce systems, web front ends, desktop virtualization solutions, customer relationship management applications, entry-level and mid-range databases, application servers|
+| E      | Optimized for in-memory hyper-threaded applications| SAP HANA (e.g|pplication layer, SAP NetWeaver application layer, and more broadly memory-intensive enterprise applications, large relational database servers, data warehousing workloads, business intelligence applications, in-memory analytics workloads, and additional business-critical applications, including systems that process financial transactions of various nature|
+| F      |Compute optimized virtual machines| batch processing, web servers, analytics, and gaming
+| G      |Memory and storage optimized virtual machines|large SQL and NoSQL databases, ERP, SAP, and data warehousing solutions|
+| H      |High Performance Computing|fluid dynamics, finite element analysis, seismic processing, reservoir simulation, risk analysis, electronic design automation, rendering, Spark, weather modeling, quantum simulation, computational chemistry, heat transfer simulation.|
+| L      |Storage optimized| NoSQL databases such as Cassandra, MongoDB, Cloudera, and Redis. Data warehousing applications and large transactional databases are great use cases as well
+| M      |Memory Optimized|SAP HANA, SAP S/4 HANA, SQL Hekaton and other large in-memory business critical workloads requiring massive parallel compute power
+| Mv2    |Largest memory optimized|SAP HANA, SAP S/4 HANA, SQL Hekaton and other large in-memory business critical workloads requiring massive parallel compute power
+| N      |GPU enabled|simulation, deep learning, graphics rendering, video editing, gaming and remote visualization|
+
+____
+
+# Azure Relay
+
+* [overview](https://docs.microsoft.com/en-us/azure/azure-relay/relay-what-is-it)
+* Traditional one-way, request/response, and peer-to-peer communication
+* Event distribution at internet-scope to enable publish/subscribe scenarios
+* Bi-directional and unbuffered socket communication across network boundaries
+
+____
+
+# Web apps
+* High availability
+  * [overview](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+  * Active/Passive(Hot standby)
+  * Active/Passive(Cold standy)
+  * Active/Active
+____
+
+# DataBricks
+[data analytics platform](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
+
+* Environments
+  * DataBricks SQL
+  * Databricks Data Science & Engineering
+  * Databricks Machine Learning
+
+_____
+# Import/Export
+* Azure Import/Export service is used to securely import large amounts of data to **Azure Blob storage** and **Azure Files** by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files
+[overview](https://docs.microsoft.com/en-us/azure/import-export/storage-import-export-service)
+
+* Components
+  * Import/Export service
+  * WAImportExport tool
+  * Disk Drives
+
+____
+# Big data
+
+* HD Insight
+  * Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more, in your Azure environment.
+  * [overview](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview)
+
+____
+# IOT
+
+* The Internet of Things (IoT) is typically defined as a network of physical devices that connect to and exchange data with other devices and services over the Internet or other communication network
+* [overview](https://docs.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub)
+* Integration
+  * Event Grid
+  * Logic app
+  * Machine Learning
+  * Stream Analytics
+
+___
+
+# NSG Logging
+* Resource logging(diagnostics)
+  * Event: Entries are logged for which NSG rules are applied to VMs, based on MAC address.
+  * Rule counter: Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 300 seconds
+  * Usual diagnostic sources like : storage, log analytics, Hub and external parties.
+* Network security group (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.
+  * [common usecases](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#common-use-cases)
+
+____
+# Stream Analytics
+[overview](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
+* Azure Stream Analytics can run in the cloud, for large-scale analytics, or run on IoT Edge or Azure Stack for ultra-low latency analytics. Azure Stream Analytics uses the same tools and query language on both cloud and the edge, enabling developers to build truly hybrid architectures for stream processing
+* Stream Analytics doesn't store the incoming data since all processing is done in-memory. 
+* Stream Analytics aso supports Azure Virtual Networks (VNET) when running a job in a Stream Analytics Cluster.
+
+___
+
+# DataLake
+[data scenarios](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios)
+
+____
+# Auto Scale
+[overview](https://docs.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-best-practices)
+
+* Applies only to 
+  * Virtual Machine Scale Sets
+  * Cloud Services
+  * App Service
+  * Web Apps
+  * API Management services.
+* On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met
+
+___ 
+# SLAs
+[vm slas](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/)
+
+____
+
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
 * BI
@@ -843,3 +1052,10 @@ ____
 
 # Practice samples
 [edusum](https://www.edusum.com/microsoft/microsoft-azure-architect-design-az-304-certification-sample-questions)
+
+[quizlet](https://quizlet.com/411485316/az-500-exam-dumps-az-500-braindumps-az-500-vce-az-500-pdf-exam-questions-from-wwwpassleadercom-flash-cards/)
+
+___
+
+# Resources
+[Azure Network](https://www.slideshare.net/kvaes/a-deepdive-into-azure-networking)

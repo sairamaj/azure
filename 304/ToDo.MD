@@ -53,3 +53,35 @@ https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-d
 
 * research - changing the job title and authentication contact info for the users (ad sync scneario , guest, members)
 
+- storage long term expiry
+
+PIM audit and security logs
+
+- SQL and Cosmodb authentication and authorization.
+
+- Azure dev test lab?
+
+- management group-> ad -> blueprint definition
+
+- cosmodb -> authentication
+
+Microsoft System Center Data Protection Manager (DPM)
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability
+
+https://docs.microsoft.com/en-us/azure/backup/
+
+
+waf urlbased multi site
+
+
+Site recovery
+
+
+
+[refer this for some conflicts]
+https://www.whizlabs.com/learn/course/microsoft-azure-certification-az-304/324/quiz/19331/report/5822889
+
+https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities
+
+https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#server-level-versus-database-level-ip-firewall-rules
