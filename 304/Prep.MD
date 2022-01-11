@@ -191,7 +191,10 @@ ____
   * **audit activity report** is available in all editions of Azure AD
   * deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant
 [flagged signins](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-flagged-sign-ins)
-____
+
+[identity protection & conditional access](https://techcommunity.microsoft.com/t5/itops-talk-blog/what-s-the-difference-between-azure-active-directory-identity/ba-p/1320887)
+
+____ 
 
 # Azure Cost
 * People with Cost Management Contributor (or greater) access can create shared views. You can create up to 50 shared views per scope.
@@ -519,6 +522,8 @@ ____
 
 # SQL Analytics
 * Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize performance metrics, and it has built-in intelligence for performance troubleshooting.
+
+[overview](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql)
 
 ___
 
@@ -1073,6 +1078,7 @@ ____
   * Analyze
   * View
 
+[backup-replication-difference](https://www.rubrik.com/insights/difference-between-backup-and-replication)
 ____
 
 # Practice samples
