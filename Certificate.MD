@@ -43,4 +43,5 @@
 ## other resources
 [tips](https://charbelnemnom.com/passed-az-304-exam-microsoft-azure-architect-design/)
 
-Finally having some hands on Azure environment will be helpful.
+* Finally having some hands on Azure environment will be helpful.
+* Taking notes of the some key numbers like SLAs, Compute series etc., to refresh before exam will be helpful.
