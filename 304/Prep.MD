@@ -414,6 +414,24 @@ ____
 
 [service-tier-dtu](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu)
 
+* DTU
+  * Basic 
+    * DTU -5 
+    * Max storage: 2GB
+  * Standard ( S0,S1,S2,S3,S4,S6,S7,S9,S12)
+    * DTU- 10->3000  
+    * Max storage; 1024GB
+  * Premium (P1->P12)
+    * DTU  125->4000
+    * Max storage: 1024->4096GB
+    * P6
+      * 1000 DTU
+      * 1024 GB
+    * P7
+      * 1075
+      * 4096
+ 
+
 ____
 
 # SQL Managed instance
@@ -533,6 +551,8 @@ ___
 * Node
   * VM (FabricHost.exe, Fabric.exe , FabricGateway)
 [overivew](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview)
+
+* [bronge-silver-gold](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)
 ____
 
 # Stretch Database
@@ -634,6 +654,9 @@ ___
     * only for service SAS
 
 * Azure Files and Blob storage -> customer managed keys
+
+* __Blobfuse__ is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system.
+
 ____
 
 # Azure Data Transfer
@@ -883,6 +906,9 @@ ____
 * Horizontal POD auto scaler
 * Cluster Auto scale
 * Burst to Azure container instance
+
+[api management and aks](https://docs.microsoft.com/en-us/azure/api-management/api-management-kubernetes)
+
 ____
 # Azure Automation
 
