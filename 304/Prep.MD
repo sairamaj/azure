@@ -65,13 +65,15 @@ _______
 * Auditing for storage account should be in the same region.
 
 [Serverless scenario](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-serverless-compute)
+
 [Provisioned computer scenario](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
+
 [Comparision of serverless and provisioned](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview#scenarios-well-suited-for-provisioned-compute)
 
 * Azure SQL Analytics is a cloud-only monitoring solution supporting streaming of diagnostics telemetry for all of your Azure SQL databases. Because Azure SQL Analytics does not use agents to connect to Azure Monitor, it does not support monitoring of SQL Server hosted on-premises or in virtual machines.
 
 * Firewall rules
- * [overview] (https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#server-level-versus-database-level-ip-firewall-rules)
+ * [overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/firewall-configure#server-level-versus-database-level-ip-firewall-rules)
  * use database-level IP firewall rules whenever possible. This practice enhances security and makes your database more portable. Use server-level IP firewall rules for administrators. Also use them when you have many databases that have the same access requirements, and you don't want to configure each database individually
  * Database-level IP firewall rules can only be configured through Transact-SQL.
  * Connections from inside Azure
@@ -116,6 +118,7 @@ Avoid using the App Service backup feature to back up your SQL databases because
   * [overview](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration)
 
 [files](https://github.com/projectkudu/kudu/wiki/Understanding-the-Azure-App-Service-file-system)
+
 [configuration](https://github.com/projectkudu/kudu/wiki/Configurable-settings#turning-on-the-dynamic-cache-feature)
 
 * VNet
@@ -125,7 +128,7 @@ ____
 
 # Azure Active Directory
 
-*idFix identifies errors such as duplicates and formatting problems in your Active Directory Domain Services (AD DS) domain before you synchronize to Office 365.
+* idFix identifies errors such as duplicates and formatting problems in your Active Directory Domain Services (AD DS) domain before you synchronize to Office 365.
 ## SSPR
 * [Recommendations](https://docs.microsoft.com/en-us/learn/modules/allow-users-reset-their-password/2-self-service-password-reset)
 # Resources
@@ -1092,9 +1095,16 @@ ___
 * Microsoft Azure Recovery Services (MARS) agent
   * [mars](https://docs.microsoft.com/en-us/azure/backup/backup-azure-about-mars)
   * agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure.
+
+* Snapshot tier: All the snapshots are stored locally for a maximum period of five days. This is referred to as the snapshot tier. For all types of operation recoveries, we recommended that you restore from the snapshots because it's much faster to do so. This capability is called Instant Restore.
+
+* Vault tier: All snapshots are additionally transferred to the vault for additional security and longer retention. At this point, the recovery point type changes to “snapshot and vault”.
 ____
 
+# API Gateway
+* Premium. Multi region deployment. [pricing tiers](https://docs.microsoft.com/en-us/learn/modules/publish-manage-apis-with-azure-api-management/2-create-an-api-gateway)
 
+____
 # General
 [ssis](https://www.youtube.com/watch?v=I_Ae3suaL-U)
 * BI
